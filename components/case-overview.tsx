@@ -124,7 +124,7 @@ export default function CaseOverview({ caseId }: { caseId?: string }) {
           <div className="bg-white border-2 border-[#ECECEC] rounded-lg p-8 shadow-sm">
             <h2 className="text-2xl font-bold text-[#0C1B33] mb-4">Attorney Details</h2>
             <div className="bg-[#FAFAFA] p-6 rounded border border-[#ECECEC]">
-              <p className="text-[#0C1B33] font-semibold mb-2">John Richardson, Esq.</p>
+              <p className="text-[#0C1B33] font-semibold mb-2">Attorney Charolette Harris</p>
               <p className="text-gray-600 text-sm">Legal counsel handling your inheritance matter</p>
             </div>
           </div>
