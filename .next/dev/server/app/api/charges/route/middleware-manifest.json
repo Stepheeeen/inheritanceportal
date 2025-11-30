@@ -1,0 +1,41 @@
+{
+  "sorted_middleware": [
+    "/api/charges/route"
+  ],
+  "middleware": {},
+  "instrumentation": null,
+  "functions": {
+    "/api/charges/route": {
+      "files": [
+        "server/middleware-build-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/server-reference-manifest.js",
+        "server/app/api/charges/route_client-reference-manifest.js",
+        "server/edge/chunks/_next-internal_server_app_api_charges_route_actions_5a7201f1.js",
+        "server/edge/chunks/node_modules_next_dist_esm_7621949e._.js",
+        "server/edge/chunks/node_modules_next_dist_compiled_1fe0aaac._.js",
+        "server/edge/chunks/node_modules_next_dist_7bea040f._.js",
+        "server/edge/chunks/edge-wrapper_d5d8478e.js",
+        "server/edge/chunks/[root-of-the-server]__d73aad69._.js",
+        "server/edge/chunks/turbopack-edge-wrapper_5f3aae55.js"
+      ],
+      "name": "app/api/charges/route",
+      "page": "/api/charges/route",
+      "matchers": [
+        {
+          "regexp": "^/api/charges(?:/)?$",
+          "originalSource": "/api/charges"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "development",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "HiNqjGu/ToSc9SB8Rxbdc/9fWByVyriSKHuAmz0mLes=",
+        "__NEXT_PREVIEW_MODE_ID": "638fc15a05d7cfdcd32d6923b77087de",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "9ae6b970ea14c24af17e1a045701a2d8f06d15c883400f253bb0dc21595b9e32",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "9dd02480f68e8975ffaa965bf21190ca801fba7c50efe0bd32a103e97e58cc3b"
+      }
+    }
+  }
+}

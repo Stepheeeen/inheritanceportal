@@ -1,0 +1,41 @@
+{
+  "sorted_middleware": [
+    "/api/evidence/route"
+  ],
+  "middleware": {},
+  "instrumentation": null,
+  "functions": {
+    "/api/evidence/route": {
+      "files": [
+        "server/middleware-build-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/server-reference-manifest.js",
+        "server/app/api/evidence/route_client-reference-manifest.js",
+        "server/edge/chunks/_next-internal_server_app_api_evidence_route_actions_08d12bbf.js",
+        "server/edge/chunks/node_modules_next_dist_esm_73fc287a._.js",
+        "server/edge/chunks/node_modules_next_dist_compiled_1fe0aaac._.js",
+        "server/edge/chunks/node_modules_next_dist_7bea040f._.js",
+        "server/edge/chunks/edge-wrapper_84f1ddc2.js",
+        "server/edge/chunks/[root-of-the-server]__52233aed._.js",
+        "server/edge/chunks/turbopack-edge-wrapper_ef00d668.js"
+      ],
+      "name": "app/api/evidence/route",
+      "page": "/api/evidence/route",
+      "matchers": [
+        {
+          "regexp": "^/api/evidence(?:/)?$",
+          "originalSource": "/api/evidence"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "development",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "HiNqjGu/ToSc9SB8Rxbdc/9fWByVyriSKHuAmz0mLes=",
+        "__NEXT_PREVIEW_MODE_ID": "232c86f30ea3d36fbb505c109f3a3dd0",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "70abb6a4e137b775101a3a937dd2e930884075e334e3fdd5b0701f6d4e745654",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "a8a69e9c10f6ba5df949ee1022dcd122effa0223fcae9c49415b978d4e619e03"
+      }
+    }
+  }
+}

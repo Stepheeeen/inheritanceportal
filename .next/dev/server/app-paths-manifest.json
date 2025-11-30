@@ -1,0 +1,6 @@
+{
+  "/api/beneficiaries/route": "app-edge-has-no-entrypoint",
+  "/api/cases/route": "app-edge-has-no-entrypoint",
+  "/api/charges/route": "app-edge-has-no-entrypoint",
+  "/page": "app/page.js"
+}
