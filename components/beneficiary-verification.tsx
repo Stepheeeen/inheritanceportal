@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { FileText, CheckCircle } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { createBeneficiary } from "@/lib/api"
 
 interface BeneficiaryVerificationProps {
@@ -22,6 +22,27 @@ export default function BeneficiaryVerification({ onNext }: BeneficiaryVerificat
     email: "",
   })
 
+  // Prefill from initial form localStorage
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("initialFormData")
+      if (saved) {
+        const data = JSON.parse(saved)
+        setFormData((prev) => ({
+          ...prev,
+          // map fields from initial form
+          fullName: data.fullName || prev.fullName,
+          contactAddress: data.address || prev.contactAddress,
+          dateOfBirth: data.dateOfBirth || prev.dateOfBirth,
+          phone: data.phone || prev.phone,
+          email: data.email || prev.email,
+        }))
+      }
+    } catch {
+      // ignore
+    }
+  }, [])
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -29,17 +50,14 @@ export default function BeneficiaryVerification({ onNext }: BeneficiaryVerificat
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Demo: send a minimal payload to create beneficiary
     try {
       await createBeneficiary({
         name: formData.fullName,
-        nationalId: formData.contactAddress || 'A123456789',
+        nationalId: formData.contactAddress || "A123456789",
         phone: formData.phone,
         email: formData.email,
       })
-    } catch (err) {
-      // swallow for demo
-    }
+    } catch {}
     setSubmitted(true)
     setTimeout(() => {
       onNext()

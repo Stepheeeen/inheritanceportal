@@ -1,9 +1,8 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
-import { CheckCircle } from "lucide-react"
+import { useState, useEffect } from "react"
+import { CheckCircle, FileText } from "lucide-react"
 
 interface InitialFormProps {
   onSubmit: (data: any) => void
@@ -15,8 +14,9 @@ interface FormData {
   email: string
   phone: string
   address: string
-  proofOfRelationship: string
-  nationalId: string
+  // replaced text fields with file metadata
+  proofOfRelationshipFileName: string
+  nationalIdFileName: string
   will: string
   lawyerName: string
   bankName: string
@@ -32,8 +32,8 @@ export default function InitialForm({ onSubmit }: InitialFormProps) {
     email: "",
     phone: "",
     address: "",
-    proofOfRelationship: "",
-    nationalId: "",
+    proofOfRelationshipFileName: "",
+    nationalIdFileName: "",
     will: "",
     lawyerName: "",
     bankName: "",
@@ -41,13 +41,36 @@ export default function InitialForm({ onSubmit }: InitialFormProps) {
     accountHolder: "",
   })
 
+  // load saved data (text + file names) from localStorage
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("initialFormData")
+      if (saved) {
+        setFormData((prev) => ({ ...prev, ...JSON.parse(saved) }))
+      }
+    } catch {}
+  }, [])
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
+  const handleFileChange =
+    (key: "proofOfRelationshipFileName" | "nationalIdFileName") =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0]
+      if (file) {
+        setFormData((prev) => ({ ...prev, [key]: file.name }))
+      }
+    }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    // persist (excluding actual file binary)
+    try {
+      localStorage.setItem("initialFormData", JSON.stringify(formData))
+    } catch {}
     setSubmitted(true)
     setTimeout(() => {
       onSubmit(formData)
@@ -87,13 +110,7 @@ export default function InitialForm({ onSubmit }: InitialFormProps) {
             <div className="bg-white border-2 border-[#ECECEC] rounded-lg p-8">
               <h2 className="text-xl font-bold text-[#0C1B33] mb-6">Personal Information</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <FormField
-                  label="Full Name"
-                  name="fullName"
-                  value={formData.fullName}
-                  onChange={handleInputChange}
-                  required
-                />
+                <FormField label="Full Name" name="fullName" value={formData.fullName} onChange={handleInputChange} required />
                 <FormField
                   label="Date of Birth"
                   name="dateOfBirth"
@@ -130,24 +147,19 @@ export default function InitialForm({ onSubmit }: InitialFormProps) {
               </div>
             </div>
 
-            {/* Document Information */}
+            {/* Document Information (file uploads) */}
             <div className="bg-white border-2 border-[#ECECEC] rounded-lg p-8">
               <h2 className="text-xl font-bold text-[#0C1B33] mb-6">Required Documentation</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <FormField
-                  label="Proof of Relationship"
-                  name="proofOfRelationship"
-                  placeholder="e.g., birth certificate, marriage certificate, affidavit"
-                  value={formData.proofOfRelationship}
-                  onChange={handleInputChange}
-                  required
+                <UploadField
+                  label="Proof of Relationship Document"
+                  fileName={formData.proofOfRelationshipFileName}
+                  onChange={handleFileChange("proofOfRelationshipFileName")}
                 />
-                <FormField
-                  label="National ID or Passport Number"
-                  name="nationalId"
-                  value={formData.nationalId}
-                  onChange={handleInputChange}
-                  required
+                <UploadField
+                  label="National ID / Passport"
+                  fileName={formData.nationalIdFileName}
+                  onChange={handleFileChange("nationalIdFileName")}
                 />
                 <FormField
                   label="Will (if available)"
@@ -159,7 +171,7 @@ export default function InitialForm({ onSubmit }: InitialFormProps) {
                 <FormField
                   label="Name of Lawyer Handling the Matter"
                   name="lawyerName"
-                  value={formData.lawyerName}
+                  value={formData.lawyerName || "John Richardson, Esq."}
                   onChange={handleInputChange}
                   required
                 />
@@ -267,6 +279,37 @@ function FormField({
         placeholder={placeholder}
         className="w-full px-4 py-3 border-2 border-[#D4D4D4] rounded-lg focus:outline-none focus:border-[#0C1B33] focus:ring-2 focus:ring-[#E8D9B5] bg-white text-[#0C1B33] placeholder-gray-400"
       />
+    </div>
+  )
+}
+
+interface UploadFieldProps {
+  label: string
+  fileName: string
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  accept?: string
+}
+
+function UploadField({ label, fileName, onChange, accept = ".pdf,.jpg,.jpeg,.png" }: UploadFieldProps) {
+  return (
+    <div>
+      <label className="block text-sm font-semibold text-[#0C1B33] mb-3">
+        {label} <span className="text-red-500">*</span>
+      </label>
+      <div className="relative border-2 border-dashed border-[#D4D4D4] rounded-lg p-6 hover:border-[#0C1B33] transition cursor-pointer text-center">
+        <input
+          type="file"
+          accept={accept}
+          onChange={onChange}
+          required
+          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+        />
+        <FileText className="w-6 h-6 text-[#CDAA4A] mx-auto mb-2" />
+        <p className="text-sm font-semibold text-[#0C1B33]">
+          {fileName ? `Selected: ${fileName}` : "Click or drag file here"}
+        </p>
+        <p className="text-xs text-gray-500 mt-1">Accepted: PDF, JPG, PNG</p>
+      </div>
     </div>
   )
 }

@@ -3,6 +3,11 @@
 import { Download, Play } from "lucide-react"
 
 export default function EstateEvidence() {
+  const videos = [
+    { src: "/evidence1.mp4", title: "Asset Verification Segment 1" },
+    { src: "/evidence2.mp4", title: "Asset Verification Segment 2" },
+  ]
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Header */}
@@ -29,40 +34,24 @@ export default function EstateEvidence() {
           {/* Asset Evidence */}
           <div className="bg-white border-2 border-[#ECECEC] rounded-lg p-8">
             <h2 className="text-2xl font-bold text-[#0C1B33] mb-6">Asset Evidence</h2>
+            <p className="text-sm text-gray-600 mb-4">Total Estate Assets: $6,000,000 USD</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <AssetCard
-                title="Financial Assets"
-                items={["Bank Accounts: $1,245,000", "Investment Accounts: $987,500", "Bonds & Securities: $615,000"]}
+                title="Financial Assets ($4,000,000)"
+                items={[
+                  "Bank Accounts: $2,500,000",
+                  "Investment Accounts: $1,200,000",
+                  "Bonds & Securities: $300,000",
+                ]}
               />
               <AssetCard
-                title="Physical Assets"
-                items={["Real Estate: $850,000", "Art & Collectibles: $150,000", "Vehicles & Equipment: $45,000"]}
+                title="Physical Assets ($2,000,000)"
+                items={[
+                  "Real Estate: $1,600,000",
+                  "Art & Collectibles: $250,000",
+                  "Vehicles & Equipment: $150,000",
+                ]}
               />
-            </div>
-          </div>
-
-          {/* Compliance */}
-          <div className="bg-white border-2 border-[#ECECEC] rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-[#0C1B33] mb-6">Compliance Notes</h2>
-            <div className="bg-[#FAFAFA] p-6 rounded border border-[#ECECEC]">
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span className="text-[#CDAA4A] font-bold">•</span>
-                  <span>All assets authenticated by certified appraisers and verified.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#CDAA4A] font-bold">•</span>
-                  <span>Beneficiary relationship verified against official estate documentation.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#CDAA4A] font-bold">•</span>
-                  <span>All tax and legal compliance requirements have been met.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#CDAA4A] font-bold">•</span>
-                  <span>Funds cleared pending final clearance payment and attorney approval.</span>
-                </li>
-              </ul>
             </div>
           </div>
 
@@ -70,12 +59,33 @@ export default function EstateEvidence() {
           <div className="bg-white border-2 border-[#ECECEC] rounded-lg p-8">
             <h2 className="text-2xl font-bold text-[#0C1B33] mb-6">Asset Verification Video</h2>
             <p className="text-gray-600 mb-6">Detailed asset verification and evidence documentation</p>
-            <div className="aspect-video bg-gradient-to-br from-[#0C1B33] to-[#1a2a47] rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <Play className="w-16 h-16 text-white mx-auto mb-3 opacity-60" />
-                <p className="text-white text-lg font-semibold">Asset Verification Video</p>
-                <p className="text-gray-300 text-sm mt-2">Estate & asset authentication documentation</p>
-              </div>
+            <div className="space-y-8">
+              {videos.map((v, i) => (
+                <div key={v.src} className="space-y-3">
+                  <p className="text-sm font-semibold text-[#0C1B33]">{v.title}</p>
+                  <div className="aspect-video bg-black rounded-lg overflow-hidden relative">
+                    <video
+                      src={v.src}
+                      controls
+                      preload="metadata"
+                      className="w-full h-full object-cover"
+                      aria-label={v.title}
+                    />
+                    <div className="absolute top-2 left-2 bg-[#0C1B33]/70 text-white text-xs px-2 py-1 rounded">
+                      Segment {i + 1}
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <a
+                      href={v.src}
+                      download
+                      className="text-[#0C1B33] text-sm font-semibold hover:text-[#1a2a47] flex items-center gap-1"
+                    >
+                      <Download className="w-4 h-4" /> Download
+                    </a>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -118,9 +128,6 @@ function DocumentRow({ title, status }: { title: string; status: string }) {
         <span className="inline-block bg-[#E8D9B5] text-[#0C1B33] px-3 py-1 rounded text-xs font-semibold">
           {status}
         </span>
-        <button className="text-[#0C1B33] hover:text-[#1a2a47]">
-          <Download className="w-5 h-5" />
-        </button>
       </div>
     </div>
   )

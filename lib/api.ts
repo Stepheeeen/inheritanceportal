@@ -42,6 +42,19 @@ export const getCase = (id: string) => apiGet<any>('/api/cases', { id })
 export const createCase = (payload: any) => apiSend<any>('/api/cases', payload, 'POST')
 export const getCharges = (caseId?: string) => apiGet<any[]>('/api/charges', caseId ? { caseId } : undefined)
 export const patchCharge = (id: string, paid: boolean) => apiSend<any>('/api/charges', { id, paid }, 'PATCH')
-export const getEvidence = (caseId?: string) => apiGet<any[]>('/api/evidence', caseId ? { caseId } : undefined)
+export type EvidenceItem = {
+  id: string;
+  caseId: string;
+  type: 'video' | 'image' | 'document';
+  title: string;
+  url: string; // can be /evidence1.mp4 or data URL
+  createdAt: string;
+};
+export async function getEvidence(caseId?: string) {
+  const url = caseId ? `/api/evidence?caseId=${encodeURIComponent(caseId)}` : `/api/evidence`;
+  const res = await fetch(url, { cache: 'no-store' });
+  if (!res.ok) throw new Error('Failed to fetch evidence');
+  return res.json() as Promise<{ items: EvidenceItem[] }>;
+}
 export const addEvidence = (payload: any) => apiSend<any>('/api/evidence', payload, 'POST')
 export const getStatements = (beneficiaryId?: string) => apiGet<any[]>('/api/statements', beneficiaryId ? { beneficiaryId } : undefined)

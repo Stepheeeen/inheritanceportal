@@ -9,7 +9,6 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-check-big.js [app-client] (ecmascript) <export default as CheckCircle>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/file-text.js [app-client] (ecmascript) <export default as FileText>");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
@@ -24,30 +23,14 @@ function InitialForm({ onSubmit }) {
         email: "",
         phone: "",
         address: "",
-        proofOfRelationshipFileName: "",
-        nationalIdFileName: "",
+        proofOfRelationship: "",
+        nationalId: "",
         will: "",
         lawyerName: "",
         bankName: "",
         accountNumber: "",
         accountHolder: ""
     });
-    // load saved data (text + file names) from localStorage
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "InitialForm.useEffect": ()=>{
-            try {
-                const saved = localStorage.getItem("initialFormData");
-                if (saved) {
-                    setFormData({
-                        "InitialForm.useEffect": (prev)=>({
-                                ...prev,
-                                ...JSON.parse(saved)
-                            })
-                    }["InitialForm.useEffect"]);
-                }
-            } catch  {}
-        }
-    }["InitialForm.useEffect"], []);
     const handleInputChange = (e)=>{
         const { name, value } = e.target;
         setFormData((prev)=>({
@@ -55,21 +38,8 @@ function InitialForm({ onSubmit }) {
                 [name]: value
             }));
     };
-    const handleFileChange = (key)=>(e)=>{
-            const file = e.target.files?.[0];
-            if (file) {
-                setFormData((prev)=>({
-                        ...prev,
-                        [key]: file.name
-                    }));
-            }
-        };
     const handleSubmit = (e)=>{
         e.preventDefault();
-        // persist (excluding actual file binary)
-        try {
-            localStorage.setItem("initialFormData", JSON.stringify(formData));
-        } catch  {}
         setSubmitted(true);
         setTimeout(()=>{
             onSubmit(formData);
@@ -87,12 +57,12 @@ function InitialForm({ onSubmit }) {
                             className: "w-16 h-16 text-[#CDAA4A]"
                         }, void 0, false, {
                             fileName: "[project]/components/initial-form.tsx",
-                            lineNumber: 85,
+                            lineNumber: 62,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/initial-form.tsx",
-                        lineNumber: 84,
+                        lineNumber: 61,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -100,7 +70,7 @@ function InitialForm({ onSubmit }) {
                         children: "Application Received"
                     }, void 0, false, {
                         fileName: "[project]/components/initial-form.tsx",
-                        lineNumber: 87,
+                        lineNumber: 64,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -108,7 +78,7 @@ function InitialForm({ onSubmit }) {
                         children: "Your inheritance claim information has been securely submitted."
                     }, void 0, false, {
                         fileName: "[project]/components/initial-form.tsx",
-                        lineNumber: 88,
+                        lineNumber: 65,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -116,18 +86,18 @@ function InitialForm({ onSubmit }) {
                         children: "Redirecting to your case overview..."
                     }, void 0, false, {
                         fileName: "[project]/components/initial-form.tsx",
-                        lineNumber: 89,
+                        lineNumber: 66,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/initial-form.tsx",
-                lineNumber: 83,
+                lineNumber: 60,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/initial-form.tsx",
-            lineNumber: 82,
+            lineNumber: 59,
             columnNumber: 7
         }, this);
     }
@@ -144,7 +114,7 @@ function InitialForm({ onSubmit }) {
                             children: "Inheritance Portal"
                         }, void 0, false, {
                             fileName: "[project]/components/initial-form.tsx",
-                            lineNumber: 100,
+                            lineNumber: 77,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -152,18 +122,18 @@ function InitialForm({ onSubmit }) {
                             children: "Submit your inheritance claim information and required documents."
                         }, void 0, false, {
                             fileName: "[project]/components/initial-form.tsx",
-                            lineNumber: 101,
+                            lineNumber: 78,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/initial-form.tsx",
-                    lineNumber: 99,
+                    lineNumber: 76,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/initial-form.tsx",
-                lineNumber: 98,
+                lineNumber: 75,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -182,7 +152,7 @@ function InitialForm({ onSubmit }) {
                                         children: "Personal Information"
                                     }, void 0, false, {
                                         fileName: "[project]/components/initial-form.tsx",
-                                        lineNumber: 111,
+                                        lineNumber: 88,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -196,7 +166,7 @@ function InitialForm({ onSubmit }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 113,
+                                                lineNumber: 90,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
@@ -208,7 +178,7 @@ function InitialForm({ onSubmit }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 114,
+                                                lineNumber: 97,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
@@ -220,7 +190,7 @@ function InitialForm({ onSubmit }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 122,
+                                                lineNumber: 105,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
@@ -232,7 +202,7 @@ function InitialForm({ onSubmit }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 130,
+                                                lineNumber: 113,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -245,24 +215,24 @@ function InitialForm({ onSubmit }) {
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/initial-form.tsx",
-                                                    lineNumber: 139,
+                                                    lineNumber: 122,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 138,
+                                                lineNumber: 121,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/initial-form.tsx",
-                                        lineNumber: 112,
+                                        lineNumber: 89,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/initial-form.tsx",
-                                lineNumber: 110,
+                                lineNumber: 87,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -273,28 +243,33 @@ function InitialForm({ onSubmit }) {
                                         children: "Required Documentation"
                                     }, void 0, false, {
                                         fileName: "[project]/components/initial-form.tsx",
-                                        lineNumber: 152,
+                                        lineNumber: 135,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "grid grid-cols-1 md:grid-cols-2 gap-6",
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(UploadField, {
-                                                label: "Proof of Relationship Document",
-                                                fileName: formData.proofOfRelationshipFileName,
-                                                onChange: handleFileChange("proofOfRelationshipFileName")
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
+                                                label: "Proof of Relationship",
+                                                name: "proofOfRelationship",
+                                                placeholder: "e.g., birth certificate, marriage certificate, affidavit",
+                                                value: formData.proofOfRelationship,
+                                                onChange: handleInputChange,
+                                                required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 154,
+                                                lineNumber: 137,
                                                 columnNumber: 17
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(UploadField, {
-                                                label: "National ID / Passport",
-                                                fileName: formData.nationalIdFileName,
-                                                onChange: handleFileChange("nationalIdFileName")
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
+                                                label: "National ID or Passport Number",
+                                                name: "nationalId",
+                                                value: formData.nationalId,
+                                                onChange: handleInputChange,
+                                                required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 159,
+                                                lineNumber: 145,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
@@ -305,30 +280,30 @@ function InitialForm({ onSubmit }) {
                                                 onChange: handleInputChange
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 164,
+                                                lineNumber: 152,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
                                                 label: "Name of Lawyer Handling the Matter",
                                                 name: "lawyerName",
-                                                value: formData.lawyerName || "John Richardson, Esq.",
+                                                value: formData.lawyerName,
                                                 onChange: handleInputChange,
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 171,
+                                                lineNumber: 159,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/initial-form.tsx",
-                                        lineNumber: 153,
+                                        lineNumber: 136,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/initial-form.tsx",
-                                lineNumber: 151,
+                                lineNumber: 134,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -339,7 +314,7 @@ function InitialForm({ onSubmit }) {
                                         children: "Banking Information (For Fund Transfer)"
                                     }, void 0, false, {
                                         fileName: "[project]/components/initial-form.tsx",
-                                        lineNumber: 183,
+                                        lineNumber: 171,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -347,7 +322,7 @@ function InitialForm({ onSubmit }) {
                                         children: "This information will be used solely for processing your inheritance disbursement."
                                     }, void 0, false, {
                                         fileName: "[project]/components/initial-form.tsx",
-                                        lineNumber: 184,
+                                        lineNumber: 172,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -361,7 +336,7 @@ function InitialForm({ onSubmit }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 188,
+                                                lineNumber: 176,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
@@ -372,7 +347,7 @@ function InitialForm({ onSubmit }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 195,
+                                                lineNumber: 183,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -385,24 +360,24 @@ function InitialForm({ onSubmit }) {
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/initial-form.tsx",
-                                                    lineNumber: 203,
+                                                    lineNumber: 191,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 202,
+                                                lineNumber: 190,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/initial-form.tsx",
-                                        lineNumber: 187,
+                                        lineNumber: 175,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/initial-form.tsx",
-                                lineNumber: 182,
+                                lineNumber: 170,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -413,7 +388,7 @@ function InitialForm({ onSubmit }) {
                                         children: "Data Security & Compliance"
                                     }, void 0, false, {
                                         fileName: "[project]/components/initial-form.tsx",
-                                        lineNumber: 216,
+                                        lineNumber: 204,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -423,40 +398,40 @@ function InitialForm({ onSubmit }) {
                                                 children: "✔ End-to-end encryption for all submissions"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 218,
+                                                lineNumber: 206,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: "✔ GDPR and data protection compliance"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 219,
+                                                lineNumber: 207,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: "✔ Secure document storage and processing"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 220,
+                                                lineNumber: 208,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: "✔ Your information will never be shared with third parties without consent"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/initial-form.tsx",
-                                                lineNumber: 221,
+                                                lineNumber: 209,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/initial-form.tsx",
-                                        lineNumber: 217,
+                                        lineNumber: 205,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/initial-form.tsx",
-                                lineNumber: 215,
+                                lineNumber: 203,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -467,28 +442,28 @@ function InitialForm({ onSubmit }) {
                                     children: "Submit Claim & Continue"
                                 }, void 0, false, {
                                     fileName: "[project]/components/initial-form.tsx",
-                                    lineNumber: 227,
+                                    lineNumber: 215,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/initial-form.tsx",
-                                lineNumber: 226,
+                                lineNumber: 214,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/initial-form.tsx",
-                        lineNumber: 108,
+                        lineNumber: 85,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/initial-form.tsx",
-                    lineNumber: 107,
+                    lineNumber: 84,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/initial-form.tsx",
-                lineNumber: 106,
+                lineNumber: 83,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -499,27 +474,27 @@ function InitialForm({ onSubmit }) {
                         children: "© 2025 Inheritance Clearance Portal. All rights reserved. Confidential communications."
                     }, void 0, false, {
                         fileName: "[project]/components/initial-form.tsx",
-                        lineNumber: 241,
+                        lineNumber: 229,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/initial-form.tsx",
-                    lineNumber: 240,
+                    lineNumber: 228,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/initial-form.tsx",
-                lineNumber: 239,
+                lineNumber: 227,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/initial-form.tsx",
-        lineNumber: 96,
+        lineNumber: 73,
         columnNumber: 5
     }, this);
 }
-_s(InitialForm, "ivG6ngdrj/cW4/gHE9/hwjtTjkM=");
+_s(InitialForm, "gPZg8F3luhsDMtSvI19+lzDARt8=");
 _c = InitialForm;
 function FormField({ label, name, value, onChange, type = "text", placeholder = "", required = false }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -535,13 +510,13 @@ function FormField({ label, name, value, onChange, type = "text", placeholder = 
                         children: "*"
                     }, void 0, false, {
                         fileName: "[project]/components/initial-form.tsx",
-                        lineNumber: 270,
+                        lineNumber: 258,
                         columnNumber: 30
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/initial-form.tsx",
-                lineNumber: 269,
+                lineNumber: 257,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -555,94 +530,20 @@ function FormField({ label, name, value, onChange, type = "text", placeholder = 
                 className: "w-full px-4 py-3 border-2 border-[#D4D4D4] rounded-lg focus:outline-none focus:border-[#0C1B33] focus:ring-2 focus:ring-[#E8D9B5] bg-white text-[#0C1B33] placeholder-gray-400"
             }, void 0, false, {
                 fileName: "[project]/components/initial-form.tsx",
-                lineNumber: 272,
+                lineNumber: 260,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/initial-form.tsx",
-        lineNumber: 268,
+        lineNumber: 256,
         columnNumber: 5
     }, this);
 }
 _c1 = FormField;
-function UploadField({ label, fileName, onChange, accept = ".pdf,.jpg,.jpeg,.png" }) {
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                className: "block text-sm font-semibold text-[#0C1B33] mb-3",
-                children: [
-                    label,
-                    " ",
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "text-red-500",
-                        children: "*"
-                    }, void 0, false, {
-                        fileName: "[project]/components/initial-form.tsx",
-                        lineNumber: 297,
-                        columnNumber: 17
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/initial-form.tsx",
-                lineNumber: 296,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative border-2 border-dashed border-[#D4D4D4] rounded-lg p-6 hover:border-[#0C1B33] transition cursor-pointer text-center",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                        type: "file",
-                        accept: accept,
-                        onChange: onChange,
-                        required: true,
-                        className: "absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                    }, void 0, false, {
-                        fileName: "[project]/components/initial-form.tsx",
-                        lineNumber: 300,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"], {
-                        className: "w-6 h-6 text-[#CDAA4A] mx-auto mb-2"
-                    }, void 0, false, {
-                        fileName: "[project]/components/initial-form.tsx",
-                        lineNumber: 307,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-sm font-semibold text-[#0C1B33]",
-                        children: fileName ? `Selected: ${fileName}` : "Click or drag file here"
-                    }, void 0, false, {
-                        fileName: "[project]/components/initial-form.tsx",
-                        lineNumber: 308,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-xs text-gray-500 mt-1",
-                        children: "Accepted: PDF, JPG, PNG"
-                    }, void 0, false, {
-                        fileName: "[project]/components/initial-form.tsx",
-                        lineNumber: 311,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/initial-form.tsx",
-                lineNumber: 299,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "[project]/components/initial-form.tsx",
-        lineNumber: 295,
-        columnNumber: 5
-    }, this);
-}
-_c2 = UploadField;
-var _c, _c1, _c2;
+var _c, _c1;
 __turbopack_context__.k.register(_c, "InitialForm");
 __turbopack_context__.k.register(_c1, "FormField");
-__turbopack_context__.k.register(_c2, "UploadField");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -869,6 +770,7 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/file-text.js [app-client] (ecmascript) <export default as FileText>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/download.js [app-client] (ecmascript) <export default as Download>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/play.js [app-client] (ecmascript) <export default as Play>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/api.ts [app-client] (ecmascript)");
 ;
@@ -881,16 +783,6 @@ function CaseOverview({ caseId }) {
     _s();
     const [summary, setSummary] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [evidence, setEvidence] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const videos = [
-        {
-            src: "/evidence1.mp4",
-            title: "Estate Walkthrough Segment 1"
-        },
-        {
-            src: "/evidence2.mp4",
-            title: "Asset Appraisal Segment 2"
-        }
-    ];
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "CaseOverview.useEffect": ()=>{
             // Load a specific case if provided, else fallback to the first.
@@ -937,7 +829,7 @@ function CaseOverview({ caseId }) {
         caseId
     ]);
     const submissionDate = summary?.createdAt ? new Date(summary.createdAt).toLocaleDateString() : "Nov 29, 2025";
-    const statusLabel = summary?.status === "in_review" ? "Under Review" : summary?.status === "open" ? "Open" : summary?.status === "closed" ? "Closed" : "Under Review";
+    const statusLabel = summary?.status === 'in_review' ? 'Under Review' : summary?.status === 'open' ? 'Open' : summary?.status === 'closed' ? 'Closed' : 'Under Review';
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "portal-container min-h-screen bg-white flex flex-col",
         children: [
@@ -951,7 +843,7 @@ function CaseOverview({ caseId }) {
                             children: "Your Inheritance Claim"
                         }, void 0, false, {
                             fileName: "[project]/components/case-overview.tsx",
-                            lineNumber: 58,
+                            lineNumber: 47,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -959,18 +851,18 @@ function CaseOverview({ caseId }) {
                             children: "Status update and authenticated estate information for your clearance process."
                         }, void 0, false, {
                             fileName: "[project]/components/case-overview.tsx",
-                            lineNumber: 59,
+                            lineNumber: 48,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/case-overview.tsx",
-                    lineNumber: 57,
+                    lineNumber: 46,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/case-overview.tsx",
-                lineNumber: 56,
+                lineNumber: 45,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -986,7 +878,7 @@ function CaseOverview({ caseId }) {
                                     children: "Claim Summary"
                                 }, void 0, false, {
                                     fileName: "[project]/components/case-overview.tsx",
-                                    lineNumber: 70,
+                                    lineNumber: 59,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1000,21 +892,21 @@ function CaseOverview({ caseId }) {
                                                     children: "Claim ID"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/case-overview.tsx",
-                                                    lineNumber: 73,
+                                                    lineNumber: 62,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     className: "text-lg font-mono text-[#0C1B33]",
-                                                    children: summary?.id ?? "ICP-2025-087654"
+                                                    children: summary?.id ?? 'ICP-2025-087654'
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/case-overview.tsx",
-                                                    lineNumber: 74,
+                                                    lineNumber: 63,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/case-overview.tsx",
-                                            lineNumber: 72,
+                                            lineNumber: 61,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1025,7 +917,7 @@ function CaseOverview({ caseId }) {
                                                     children: "Status"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/case-overview.tsx",
-                                                    lineNumber: 77,
+                                                    lineNumber: 66,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1033,13 +925,13 @@ function CaseOverview({ caseId }) {
                                                     children: statusLabel
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/case-overview.tsx",
-                                                    lineNumber: 78,
+                                                    lineNumber: 67,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/case-overview.tsx",
-                                            lineNumber: 76,
+                                            lineNumber: 65,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1049,7 +941,7 @@ function CaseOverview({ caseId }) {
                                                     children: "Submission Date"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/case-overview.tsx",
-                                                    lineNumber: 83,
+                                                    lineNumber: 72,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1057,25 +949,25 @@ function CaseOverview({ caseId }) {
                                                     children: submissionDate
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/case-overview.tsx",
-                                                    lineNumber: 84,
+                                                    lineNumber: 73,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/case-overview.tsx",
-                                            lineNumber: 82,
+                                            lineNumber: 71,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/case-overview.tsx",
-                                    lineNumber: 71,
+                                    lineNumber: 60,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/case-overview.tsx",
-                            lineNumber: 69,
+                            lineNumber: 58,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1086,7 +978,7 @@ function CaseOverview({ caseId }) {
                                     children: "Estate Information"
                                 }, void 0, false, {
                                     fileName: "[project]/components/case-overview.tsx",
-                                    lineNumber: 91,
+                                    lineNumber: 80,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1094,10 +986,10 @@ function CaseOverview({ caseId }) {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoRow, {
                                             label: "Total Claimed Amount",
-                                            value: "$6,000,000 USD"
+                                            value: "$2,847,500 USD"
                                         }, void 0, false, {
                                             fileName: "[project]/components/case-overview.tsx",
-                                            lineNumber: 93,
+                                            lineNumber: 82,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoRow, {
@@ -1105,7 +997,7 @@ function CaseOverview({ caseId }) {
                                             value: "6 Parcels"
                                         }, void 0, false, {
                                             fileName: "[project]/components/case-overview.tsx",
-                                            lineNumber: 94,
+                                            lineNumber: 83,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoRow, {
@@ -1113,7 +1005,7 @@ function CaseOverview({ caseId }) {
                                             value: "Documentation Verification"
                                         }, void 0, false, {
                                             fileName: "[project]/components/case-overview.tsx",
-                                            lineNumber: 95,
+                                            lineNumber: 84,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoRow, {
@@ -1121,11 +1013,78 @@ function CaseOverview({ caseId }) {
                                             value: "5-7 Business Days"
                                         }, void 0, false, {
                                             fileName: "[project]/components/case-overview.tsx",
-                                            lineNumber: 96,
+                                            lineNumber: 85,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
+                                    fileName: "[project]/components/case-overview.tsx",
+                                    lineNumber: 81,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/case-overview.tsx",
+                            lineNumber: 79,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "bg-white border-2 border-[#ECECEC] rounded-lg p-8 shadow-sm",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                    className: "text-2xl font-bold text-[#0C1B33] mb-6",
+                                    children: "Submitted Documentation"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/case-overview.tsx",
+                                    lineNumber: 91,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "grid grid-cols-1 md:grid-cols-2 gap-4",
+                                    children: evidence.length > 0 ? evidence.slice(0, 4).map((ev)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DocumentPlaceholder, {
+                                            title: ev.type === 'note' ? 'Note' : 'Evidence',
+                                            status: ev.type === 'note' ? 'Received' : 'Verified'
+                                        }, ev.id, false, {
+                                            fileName: "[project]/components/case-overview.tsx",
+                                            lineNumber: 95,
+                                            columnNumber: 19
+                                        }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DocumentPlaceholder, {
+                                                title: "Proof of Relationship",
+                                                status: "Verified"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/case-overview.tsx",
+                                                lineNumber: 99,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DocumentPlaceholder, {
+                                                title: "National ID / Passport",
+                                                status: "Verified"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/case-overview.tsx",
+                                                lineNumber: 100,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DocumentPlaceholder, {
+                                                title: "Will (if provided)",
+                                                status: "Received"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/case-overview.tsx",
+                                                lineNumber: 101,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DocumentPlaceholder, {
+                                                title: "Legal Documentation",
+                                                status: "Under Review"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/case-overview.tsx",
+                                                lineNumber: 102,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true)
+                                }, void 0, false, {
                                     fileName: "[project]/components/case-overview.tsx",
                                     lineNumber: 92,
                                     columnNumber: 13
@@ -1140,78 +1099,11 @@ function CaseOverview({ caseId }) {
                             className: "bg-white border-2 border-[#ECECEC] rounded-lg p-8 shadow-sm",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                    className: "text-2xl font-bold text-[#0C1B33] mb-6",
-                                    children: "Submitted Documentation"
-                                }, void 0, false, {
-                                    fileName: "[project]/components/case-overview.tsx",
-                                    lineNumber: 102,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "grid grid-cols-1 md:grid-cols-2 gap-4",
-                                    children: evidence.length > 0 ? evidence.slice(0, 4).map((ev)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DocumentPlaceholder, {
-                                            title: ev.type === "note" ? "Note" : ev.label || "Evidence",
-                                            status: ev.type === "note" ? "Received" : "Verified"
-                                        }, ev.id, false, {
-                                            fileName: "[project]/components/case-overview.tsx",
-                                            lineNumber: 106,
-                                            columnNumber: 19
-                                        }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DocumentPlaceholder, {
-                                                title: "Proof of Relationship",
-                                                status: "Verified"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/case-overview.tsx",
-                                                lineNumber: 114,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DocumentPlaceholder, {
-                                                title: "National ID / Passport",
-                                                status: "Verified"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/case-overview.tsx",
-                                                lineNumber: 115,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DocumentPlaceholder, {
-                                                title: "Will (if provided)",
-                                                status: "Received"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/case-overview.tsx",
-                                                lineNumber: 116,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DocumentPlaceholder, {
-                                                title: "Legal Documentation",
-                                                status: "Under Review"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/case-overview.tsx",
-                                                lineNumber: 117,
-                                                columnNumber: 19
-                                            }, this)
-                                        ]
-                                    }, void 0, true)
-                                }, void 0, false, {
-                                    fileName: "[project]/components/case-overview.tsx",
-                                    lineNumber: 103,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/components/case-overview.tsx",
-                            lineNumber: 101,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "bg-white border-2 border-[#ECECEC] rounded-lg p-8 shadow-sm",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                     className: "text-2xl font-bold text-[#0C1B33] mb-4",
                                     children: "Attorney Details"
                                 }, void 0, false, {
                                     fileName: "[project]/components/case-overview.tsx",
-                                    lineNumber: 125,
+                                    lineNumber: 110,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1222,7 +1114,7 @@ function CaseOverview({ caseId }) {
                                             children: "John Richardson, Esq."
                                         }, void 0, false, {
                                             fileName: "[project]/components/case-overview.tsx",
-                                            lineNumber: 127,
+                                            lineNumber: 112,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1230,19 +1122,19 @@ function CaseOverview({ caseId }) {
                                             children: "Legal counsel handling your inheritance matter"
                                         }, void 0, false, {
                                             fileName: "[project]/components/case-overview.tsx",
-                                            lineNumber: 128,
+                                            lineNumber: 113,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/case-overview.tsx",
-                                    lineNumber: 126,
+                                    lineNumber: 111,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/case-overview.tsx",
-                            lineNumber: 124,
+                            lineNumber: 109,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1253,7 +1145,7 @@ function CaseOverview({ caseId }) {
                                     children: "Estate Evidence Verification"
                                 }, void 0, false, {
                                     fileName: "[project]/components/case-overview.tsx",
-                                    lineNumber: 134,
+                                    lineNumber: 119,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1261,105 +1153,63 @@ function CaseOverview({ caseId }) {
                                     children: "Authenticated estate documentation and asset verification"
                                 }, void 0, false, {
                                     fileName: "[project]/components/case-overview.tsx",
-                                    lineNumber: 135,
+                                    lineNumber: 120,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "space-y-8",
-                                    children: videos.map((v, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "space-y-3",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-sm font-semibold text-[#0C1B33]",
-                                                    children: v.title
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/case-overview.tsx",
-                                                    lineNumber: 139,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "aspect-video bg-black rounded-lg overflow-hidden relative",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("video", {
-                                                            src: v.src,
-                                                            controls: true,
-                                                            preload: "metadata",
-                                                            className: "w-full h-full object-cover",
-                                                            "aria-label": v.title
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/components/case-overview.tsx",
-                                                            lineNumber: 141,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "absolute top-2 left-2 bg-[#0C1B33]/70 text-white text-xs px-2 py-1 rounded",
-                                                            children: [
-                                                                "Segment ",
-                                                                i + 1
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/components/case-overview.tsx",
-                                                            lineNumber: 148,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/components/case-overview.tsx",
-                                                    lineNumber: 140,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex gap-4",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                        href: v.src,
-                                                        download: true,
-                                                        className: "text-[#0C1B33] text-sm font-semibold hover:text-[#1a2a47] flex items-center gap-1",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__["Download"], {
-                                                                className: "w-4 h-4"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/components/case-overview.tsx",
-                                                                lineNumber: 158,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            " Download"
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/components/case-overview.tsx",
-                                                        lineNumber: 153,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/case-overview.tsx",
-                                                    lineNumber: 152,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, v.src, true, {
-                                            fileName: "[project]/components/case-overview.tsx",
-                                            lineNumber: 138,
-                                            columnNumber: 17
-                                        }, this))
+                                    className: "aspect-video bg-gradient-to-br from-[#0C1B33] to-[#1a2a47] rounded-lg flex items-center justify-center",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-center",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__["Play"], {
+                                                className: "w-16 h-16 text-white mx-auto mb-3 opacity-60"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/case-overview.tsx",
+                                                lineNumber: 123,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-white text-lg font-semibold",
+                                                children: "Video Documentation"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/case-overview.tsx",
+                                                lineNumber: 124,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-300 text-sm mt-2",
+                                                children: "Estate verification & asset authentication"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/case-overview.tsx",
+                                                lineNumber: 125,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/components/case-overview.tsx",
+                                        lineNumber: 122,
+                                        columnNumber: 15
+                                    }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/case-overview.tsx",
-                                    lineNumber: 136,
+                                    lineNumber: 121,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/case-overview.tsx",
-                            lineNumber: 133,
+                            lineNumber: 118,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/case-overview.tsx",
-                    lineNumber: 67,
+                    lineNumber: 56,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/case-overview.tsx",
-                lineNumber: 66,
+                lineNumber: 55,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -1370,23 +1220,23 @@ function CaseOverview({ caseId }) {
                         children: "© 2025 Inheritance Clearance Portal. All rights reserved. Confidential communications."
                     }, void 0, false, {
                         fileName: "[project]/components/case-overview.tsx",
-                        lineNumber: 171,
+                        lineNumber: 135,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/case-overview.tsx",
-                    lineNumber: 170,
+                    lineNumber: 134,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/case-overview.tsx",
-                lineNumber: 169,
+                lineNumber: 133,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/case-overview.tsx",
-        lineNumber: 54,
+        lineNumber: 43,
         columnNumber: 5
     }, this);
 }
@@ -1404,7 +1254,7 @@ function DocumentPlaceholder({ title, status }) {
                         className: "w-8 h-8 text-[#CDAA4A]"
                     }, void 0, false, {
                         fileName: "[project]/components/case-overview.tsx",
-                        lineNumber: 189,
+                        lineNumber: 153,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1412,13 +1262,13 @@ function DocumentPlaceholder({ title, status }) {
                         children: status
                     }, void 0, false, {
                         fileName: "[project]/components/case-overview.tsx",
-                        lineNumber: 190,
+                        lineNumber: 154,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/case-overview.tsx",
-                lineNumber: 188,
+                lineNumber: 152,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1426,7 +1276,7 @@ function DocumentPlaceholder({ title, status }) {
                 children: title
             }, void 0, false, {
                 fileName: "[project]/components/case-overview.tsx",
-                lineNumber: 192,
+                lineNumber: 156,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1434,13 +1284,30 @@ function DocumentPlaceholder({ title, status }) {
                 children: "Authenticated Document"
             }, void 0, false, {
                 fileName: "[project]/components/case-overview.tsx",
-                lineNumber: 193,
+                lineNumber: 157,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                className: "text-[#0C1B33] text-sm font-semibold hover:text-[#1a2a47] flex items-center gap-1",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__["Download"], {
+                        className: "w-4 h-4"
+                    }, void 0, false, {
+                        fileName: "[project]/components/case-overview.tsx",
+                        lineNumber: 159,
+                        columnNumber: 9
+                    }, this),
+                    "Download / View"
+                ]
+            }, void 0, true, {
+                fileName: "[project]/components/case-overview.tsx",
+                lineNumber: 158,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/case-overview.tsx",
-        lineNumber: 187,
+        lineNumber: 151,
         columnNumber: 5
     }, this);
 }
@@ -1454,7 +1321,7 @@ function InfoRow({ label, value }) {
                 children: label
             }, void 0, false, {
                 fileName: "[project]/components/case-overview.tsx",
-                lineNumber: 205,
+                lineNumber: 169,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1462,13 +1329,13 @@ function InfoRow({ label, value }) {
                 children: value
             }, void 0, false, {
                 fileName: "[project]/components/case-overview.tsx",
-                lineNumber: 206,
+                lineNumber: 170,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/case-overview.tsx",
-        lineNumber: 204,
+        lineNumber: 168,
         columnNumber: 5
     }, this);
 }
@@ -1512,30 +1379,6 @@ function BeneficiaryVerification({ onNext }) {
         phone: "",
         email: ""
     });
-    // Prefill from initial form localStorage
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "BeneficiaryVerification.useEffect": ()=>{
-            try {
-                const saved = localStorage.getItem("initialFormData");
-                if (saved) {
-                    const data = JSON.parse(saved);
-                    setFormData({
-                        "BeneficiaryVerification.useEffect": (prev)=>({
-                                ...prev,
-                                // map fields from initial form
-                                fullName: data.fullName || prev.fullName,
-                                contactAddress: data.address || prev.contactAddress,
-                                dateOfBirth: data.dateOfBirth || prev.dateOfBirth,
-                                phone: data.phone || prev.phone,
-                                email: data.email || prev.email
-                            })
-                    }["BeneficiaryVerification.useEffect"]);
-                }
-            } catch  {
-            // ignore
-            }
-        }
-    }["BeneficiaryVerification.useEffect"], []);
     const handleInputChange = (e)=>{
         const { name, value } = e.target;
         setFormData((prev)=>({
@@ -1545,14 +1388,17 @@ function BeneficiaryVerification({ onNext }) {
     };
     const handleSubmit = async (e)=>{
         e.preventDefault();
+        // Demo: send a minimal payload to create beneficiary
         try {
             await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createBeneficiary"])({
                 name: formData.fullName,
-                nationalId: formData.contactAddress || "A123456789",
+                nationalId: formData.contactAddress || 'A123456789',
                 phone: formData.phone,
                 email: formData.email
             });
-        } catch  {}
+        } catch (err) {
+        // swallow for demo
+        }
         setSubmitted(true);
         setTimeout(()=>{
             onNext();
@@ -1570,12 +1416,12 @@ function BeneficiaryVerification({ onNext }) {
                             className: "w-16 h-16 text-[#CDAA4A]"
                         }, void 0, false, {
                             fileName: "[project]/components/beneficiary-verification.tsx",
-                            lineNumber: 72,
+                            lineNumber: 54,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/beneficiary-verification.tsx",
-                        lineNumber: 71,
+                        lineNumber: 53,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -1583,7 +1429,7 @@ function BeneficiaryVerification({ onNext }) {
                         children: "Verification Submitted"
                     }, void 0, false, {
                         fileName: "[project]/components/beneficiary-verification.tsx",
-                        lineNumber: 74,
+                        lineNumber: 56,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1591,7 +1437,7 @@ function BeneficiaryVerification({ onNext }) {
                         children: "Your verification has been submitted for clearance review."
                     }, void 0, false, {
                         fileName: "[project]/components/beneficiary-verification.tsx",
-                        lineNumber: 75,
+                        lineNumber: 57,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1599,18 +1445,18 @@ function BeneficiaryVerification({ onNext }) {
                         children: "Redirecting..."
                     }, void 0, false, {
                         fileName: "[project]/components/beneficiary-verification.tsx",
-                        lineNumber: 76,
+                        lineNumber: 58,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/beneficiary-verification.tsx",
-                lineNumber: 70,
+                lineNumber: 52,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/beneficiary-verification.tsx",
-            lineNumber: 69,
+            lineNumber: 51,
             columnNumber: 7
         }, this);
     }
@@ -1627,7 +1473,7 @@ function BeneficiaryVerification({ onNext }) {
                             children: "Beneficiary Verification"
                         }, void 0, false, {
                             fileName: "[project]/components/beneficiary-verification.tsx",
-                            lineNumber: 87,
+                            lineNumber: 69,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1635,18 +1481,18 @@ function BeneficiaryVerification({ onNext }) {
                             children: "Complete verification for inheritance clearance"
                         }, void 0, false, {
                             fileName: "[project]/components/beneficiary-verification.tsx",
-                            lineNumber: 88,
+                            lineNumber: 70,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/beneficiary-verification.tsx",
-                    lineNumber: 86,
+                    lineNumber: 68,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/beneficiary-verification.tsx",
-                lineNumber: 85,
+                lineNumber: 67,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1665,7 +1511,7 @@ function BeneficiaryVerification({ onNext }) {
                                         children: "Personal Information"
                                     }, void 0, false, {
                                         fileName: "[project]/components/beneficiary-verification.tsx",
-                                        lineNumber: 98,
+                                        lineNumber: 80,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1679,7 +1525,7 @@ function BeneficiaryVerification({ onNext }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 100,
+                                                lineNumber: 82,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
@@ -1690,7 +1536,7 @@ function BeneficiaryVerification({ onNext }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 107,
+                                                lineNumber: 89,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
@@ -1702,7 +1548,7 @@ function BeneficiaryVerification({ onNext }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 114,
+                                                lineNumber: 96,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
@@ -1713,19 +1559,19 @@ function BeneficiaryVerification({ onNext }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 122,
+                                                lineNumber: 104,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/beneficiary-verification.tsx",
-                                        lineNumber: 99,
+                                        lineNumber: 81,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                lineNumber: 97,
+                                lineNumber: 79,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1736,7 +1582,7 @@ function BeneficiaryVerification({ onNext }) {
                                         children: "Employment Information"
                                     }, void 0, false, {
                                         fileName: "[project]/components/beneficiary-verification.tsx",
-                                        lineNumber: 134,
+                                        lineNumber: 116,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1750,7 +1596,7 @@ function BeneficiaryVerification({ onNext }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 136,
+                                                lineNumber: 118,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
@@ -1761,19 +1607,19 @@ function BeneficiaryVerification({ onNext }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 143,
+                                                lineNumber: 125,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/beneficiary-verification.tsx",
-                                        lineNumber: 135,
+                                        lineNumber: 117,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                lineNumber: 133,
+                                lineNumber: 115,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1784,7 +1630,7 @@ function BeneficiaryVerification({ onNext }) {
                                         children: "Contact Information"
                                     }, void 0, false, {
                                         fileName: "[project]/components/beneficiary-verification.tsx",
-                                        lineNumber: 155,
+                                        lineNumber: 137,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1799,7 +1645,7 @@ function BeneficiaryVerification({ onNext }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 157,
+                                                lineNumber: 139,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormField, {
@@ -1811,19 +1657,19 @@ function BeneficiaryVerification({ onNext }) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 165,
+                                                lineNumber: 147,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/beneficiary-verification.tsx",
-                                        lineNumber: 156,
+                                        lineNumber: 138,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                lineNumber: 154,
+                                lineNumber: 136,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1834,7 +1680,7 @@ function BeneficiaryVerification({ onNext }) {
                                         children: "Required Documentation"
                                     }, void 0, false, {
                                         fileName: "[project]/components/beneficiary-verification.tsx",
-                                        lineNumber: 178,
+                                        lineNumber: 160,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1845,7 +1691,7 @@ function BeneficiaryVerification({ onNext }) {
                                                 accept: ".pdf,.jpg,.png"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 180,
+                                                lineNumber: 162,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(UploadField, {
@@ -1853,19 +1699,19 @@ function BeneficiaryVerification({ onNext }) {
                                                 accept: ".pdf,.jpg,.png"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 181,
+                                                lineNumber: 163,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/beneficiary-verification.tsx",
-                                        lineNumber: 179,
+                                        lineNumber: 161,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                lineNumber: 177,
+                                lineNumber: 159,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1876,7 +1722,7 @@ function BeneficiaryVerification({ onNext }) {
                                         children: "Verification Checklist"
                                     }, void 0, false, {
                                         fileName: "[project]/components/beneficiary-verification.tsx",
-                                        lineNumber: 187,
+                                        lineNumber: 169,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1886,47 +1732,47 @@ function BeneficiaryVerification({ onNext }) {
                                                 text: "Personal information submitted and verified"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 189,
+                                                lineNumber: 171,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ChecklistItem, {
                                                 text: "Proof of relationship document received"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 190,
+                                                lineNumber: 172,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ChecklistItem, {
                                                 text: "National ID or passport verified"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 191,
+                                                lineNumber: 173,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ChecklistItem, {
                                                 text: "Legal representation confirmed"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 192,
+                                                lineNumber: 174,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ChecklistItem, {
                                                 text: "Banking information secured and encrypted"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 193,
+                                                lineNumber: 175,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/beneficiary-verification.tsx",
-                                        lineNumber: 188,
+                                        lineNumber: 170,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                lineNumber: 186,
+                                lineNumber: 168,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1937,7 +1783,7 @@ function BeneficiaryVerification({ onNext }) {
                                         children: "Security Status"
                                     }, void 0, false, {
                                         fileName: "[project]/components/beneficiary-verification.tsx",
-                                        lineNumber: 199,
+                                        lineNumber: 181,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1947,33 +1793,33 @@ function BeneficiaryVerification({ onNext }) {
                                                 children: "✔ End-to-end encryption active"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 201,
+                                                lineNumber: 183,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: "✔ Data compliance verified"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 202,
+                                                lineNumber: 184,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                 children: "✔ Secure document storage confirmed"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                                lineNumber: 203,
+                                                lineNumber: 185,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/beneficiary-verification.tsx",
-                                        lineNumber: 200,
+                                        lineNumber: 182,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                lineNumber: 198,
+                                lineNumber: 180,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1984,28 +1830,28 @@ function BeneficiaryVerification({ onNext }) {
                                     children: "Confirm & Continue"
                                 }, void 0, false, {
                                     fileName: "[project]/components/beneficiary-verification.tsx",
-                                    lineNumber: 209,
+                                    lineNumber: 191,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/beneficiary-verification.tsx",
-                                lineNumber: 208,
+                                lineNumber: 190,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/beneficiary-verification.tsx",
-                        lineNumber: 95,
+                        lineNumber: 77,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/beneficiary-verification.tsx",
-                    lineNumber: 94,
+                    lineNumber: 76,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/beneficiary-verification.tsx",
-                lineNumber: 93,
+                lineNumber: 75,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -2016,27 +1862,27 @@ function BeneficiaryVerification({ onNext }) {
                         children: "© 2025 Inheritance Clearance Portal. All rights reserved. Confidential communications."
                     }, void 0, false, {
                         fileName: "[project]/components/beneficiary-verification.tsx",
-                        lineNumber: 223,
+                        lineNumber: 205,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/beneficiary-verification.tsx",
-                    lineNumber: 222,
+                    lineNumber: 204,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/beneficiary-verification.tsx",
-                lineNumber: 221,
+                lineNumber: 203,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/beneficiary-verification.tsx",
-        lineNumber: 83,
+        lineNumber: 65,
         columnNumber: 5
     }, this);
 }
-_s(BeneficiaryVerification, "EAvsA+S1VYkqS27r+DUTTvFJ/C0=");
+_s(BeneficiaryVerification, "LOSSzHPDXfSFRtiU1pzVa8JIOvQ=");
 _c = BeneficiaryVerification;
 function FormField({ label, name, value, onChange, type = "text", required = false }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2052,13 +1898,13 @@ function FormField({ label, name, value, onChange, type = "text", required = fal
                         children: "*"
                     }, void 0, false, {
                         fileName: "[project]/components/beneficiary-verification.tsx",
-                        lineNumber: 243,
+                        lineNumber: 225,
                         columnNumber: 30
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/beneficiary-verification.tsx",
-                lineNumber: 242,
+                lineNumber: 224,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2072,13 +1918,13 @@ function FormField({ label, name, value, onChange, type = "text", required = fal
                 placeholder: `Enter your ${label.toLowerCase()}`
             }, void 0, false, {
                 fileName: "[project]/components/beneficiary-verification.tsx",
-                lineNumber: 245,
+                lineNumber: 227,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/beneficiary-verification.tsx",
-        lineNumber: 241,
+        lineNumber: 223,
         columnNumber: 5
     }, this);
 }
@@ -2104,13 +1950,13 @@ function UploadField({ label, accept = ".pdf,.jpg,.png" }) {
                         children: "*"
                     }, void 0, false, {
                         fileName: "[project]/components/beneficiary-verification.tsx",
-                        lineNumber: 277,
+                        lineNumber: 259,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/beneficiary-verification.tsx",
-                lineNumber: 276,
+                lineNumber: 258,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2124,14 +1970,14 @@ function UploadField({ label, accept = ".pdf,.jpg,.png" }) {
                         className: "absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                     }, void 0, false, {
                         fileName: "[project]/components/beneficiary-verification.tsx",
-                        lineNumber: 280,
+                        lineNumber: 262,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"], {
                         className: "w-6 h-6 text-[#CDAA4A] mx-auto mb-2"
                     }, void 0, false, {
                         fileName: "[project]/components/beneficiary-verification.tsx",
-                        lineNumber: 287,
+                        lineNumber: 269,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2139,7 +1985,7 @@ function UploadField({ label, accept = ".pdf,.jpg,.png" }) {
                         children: fileName ? `Uploaded: ${fileName}` : "Click to upload"
                     }, void 0, false, {
                         fileName: "[project]/components/beneficiary-verification.tsx",
-                        lineNumber: 288,
+                        lineNumber: 270,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2147,19 +1993,19 @@ function UploadField({ label, accept = ".pdf,.jpg,.png" }) {
                         children: "PDF, JPG, or PNG"
                     }, void 0, false, {
                         fileName: "[project]/components/beneficiary-verification.tsx",
-                        lineNumber: 289,
+                        lineNumber: 271,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/beneficiary-verification.tsx",
-                lineNumber: 279,
+                lineNumber: 261,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/beneficiary-verification.tsx",
-        lineNumber: 275,
+        lineNumber: 257,
         columnNumber: 5
     }, this);
 }
@@ -2174,7 +2020,7 @@ function ChecklistItem({ text }) {
                 children: "✓"
             }, void 0, false, {
                 fileName: "[project]/components/beneficiary-verification.tsx",
-                lineNumber: 298,
+                lineNumber: 280,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2182,13 +2028,13 @@ function ChecklistItem({ text }) {
                 children: text
             }, void 0, false, {
                 fileName: "[project]/components/beneficiary-verification.tsx",
-                lineNumber: 299,
+                lineNumber: 281,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/beneficiary-verification.tsx",
-        lineNumber: 297,
+        lineNumber: 279,
         columnNumber: 5
     }, this);
 }
@@ -2202,6 +2048,333 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
+"[project]/lib/utils.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "cn",
+    ()=>cn,
+    "downloadFile",
+    ()=>downloadFile,
+    "downloadManyAsZip",
+    ()=>downloadManyAsZip,
+    "fileToDataUrl",
+    ()=>fileToDataUrl,
+    "loadInitialForm",
+    ()=>loadInitialForm,
+    "saveBlobWithFS",
+    ()=>saveBlobWithFS,
+    "saveInitialForm",
+    ()=>saveInitialForm
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/tailwind-merge/dist/bundle-mjs.mjs [app-client] (ecmascript)");
+;
+;
+function cn(...inputs) {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["twMerge"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clsx"])(inputs));
+}
+async function downloadFile(url, filename) {
+    try {
+        // Try progressive streaming to Blob
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
+        // If Response supports streaming, pipe to a readable + blob
+        const blob = await res.blob();
+        triggerBlobDownload(blob, filename ?? inferFilenameFromUrl(url));
+    } catch (err) {
+        // Fallback to opening in new tab if download fails
+        console.warn('downloadFile fallback:', err);
+        window.open(url, '_blank', 'noopener,noreferrer');
+    }
+}
+async function downloadManyAsZip(items, zipName = 'evidence.zip') {
+    try {
+        // Dynamically import jszip if available
+        const JSZip = await (()=>{
+            const e = new Error("Cannot find module 'jszip'");
+            e.code = 'MODULE_NOT_FOUND';
+            throw e;
+        })().then((m)=>m.default || m);
+        const zip = new JSZip();
+        for (const item of items){
+            const res = await fetch(item.url);
+            if (!res.ok) continue;
+            const blob = await res.blob();
+            const name = item.name ?? inferFilenameFromUrl(item.url);
+            zip.file(name, blob);
+        }
+        const content = await zip.generateAsync({
+            type: 'blob'
+        });
+        triggerBlobDownload(content, zipName);
+    } catch (e) {
+        console.warn('ZIP download fallback:', e);
+        // If jszip not installed, fall back to opening items in new tabs
+        for (const item of items){
+            window.open(item.url, '_blank', 'noopener,noreferrer');
+        }
+    }
+}
+async function saveBlobWithFS(blob, suggestedName) {
+    // File System Access API (Chrome/Edge), gracefully fails elsewhere
+    const canFS = 'showSaveFilePicker' in window;
+    if (!canFS) {
+        triggerBlobDownload(blob, suggestedName);
+        return;
+    }
+    // @ts-expect-error - not in TS lib dom by default in some configs
+    const handle = await window.showSaveFilePicker({
+        suggestedName,
+        types: [
+            {
+                description: 'File',
+                accept: {
+                    '*/*': [
+                        '.*'
+                    ]
+                }
+            }
+        ]
+    });
+    const writable = await handle.createWritable();
+    await writable.write(blob);
+    await writable.close();
+}
+function triggerBlobDownload(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+}
+function inferFilenameFromUrl(url) {
+    try {
+        const u = new URL(url, window.location.origin);
+        const last = u.pathname.split('/').pop() || 'download';
+        return last;
+    } catch  {
+        const parts = url.split('?')[0].split('/').filter(Boolean);
+        return parts.pop() || 'download';
+    }
+}
+const LOCAL_KEY = 'bcp:initialForm';
+function loadInitialForm() {
+    try {
+        const raw = localStorage.getItem(LOCAL_KEY);
+        return raw ? JSON.parse(raw) : null;
+    } catch  {
+        return null;
+    }
+}
+function saveInitialForm(data) {
+    try {
+        localStorage.setItem(LOCAL_KEY, JSON.stringify(data));
+    } catch (e) {
+        console.warn('Failed to save form to LocalStorage', e);
+    }
+}
+async function fileToDataUrl(file) {
+    return new Promise((resolve, reject)=>{
+        const reader = new FileReader();
+        reader.onerror = reject;
+        reader.onload = ()=>resolve(String(reader.result));
+        reader.readAsDataURL(file);
+    });
+}
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/components/ui/button.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Button",
+    ()=>Button,
+    "buttonVariants",
+    ()=>buttonVariants
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/class-variance-authority/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
+;
+;
+;
+;
+const buttonVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cva"])("inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive", {
+    variants: {
+        variant: {
+            default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+            destructive: 'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
+            outline: 'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',
+            secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+            ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
+            link: 'text-primary underline-offset-4 hover:underline'
+        },
+        size: {
+            default: 'h-9 px-4 py-2 has-[>svg]:px-3',
+            sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
+            lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
+            icon: 'size-9',
+            'icon-sm': 'size-8',
+            'icon-lg': 'size-10'
+        }
+    },
+    defaultVariants: {
+        variant: 'default',
+        size: 'default'
+    }
+});
+function Button({ className, variant, size, asChild = false, ...props }) {
+    const Comp = asChild ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Slot"] : 'button';
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Comp, {
+        "data-slot": "button",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])(buttonVariants({
+            variant,
+            size,
+            className
+        })),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/button.tsx",
+        lineNumber: 52,
+        columnNumber: 5
+    }, this);
+}
+_c = Button;
+;
+var _c;
+__turbopack_context__.k.register(_c, "Button");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/components/ui/card.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Card",
+    ()=>Card,
+    "CardAction",
+    ()=>CardAction,
+    "CardContent",
+    ()=>CardContent,
+    "CardDescription",
+    ()=>CardDescription,
+    "CardFooter",
+    ()=>CardFooter,
+    "CardHeader",
+    ()=>CardHeader,
+    "CardTitle",
+    ()=>CardTitle
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
+;
+;
+function Card({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        "data-slot": "card",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])('bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm', className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/card.tsx",
+        lineNumber: 7,
+        columnNumber: 5
+    }, this);
+}
+_c = Card;
+function CardHeader({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        "data-slot": "card-header",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])('@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6', className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/card.tsx",
+        lineNumber: 20,
+        columnNumber: 5
+    }, this);
+}
+_c1 = CardHeader;
+function CardTitle({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        "data-slot": "card-title",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])('leading-none font-semibold', className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/card.tsx",
+        lineNumber: 33,
+        columnNumber: 5
+    }, this);
+}
+_c2 = CardTitle;
+function CardDescription({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        "data-slot": "card-description",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])('text-muted-foreground text-sm', className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/card.tsx",
+        lineNumber: 43,
+        columnNumber: 5
+    }, this);
+}
+_c3 = CardDescription;
+function CardAction({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        "data-slot": "card-action",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])('col-start-2 row-span-2 row-start-1 self-start justify-self-end', className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/card.tsx",
+        lineNumber: 53,
+        columnNumber: 5
+    }, this);
+}
+_c4 = CardAction;
+function CardContent({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        "data-slot": "card-content",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])('px-6', className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/card.tsx",
+        lineNumber: 66,
+        columnNumber: 5
+    }, this);
+}
+_c5 = CardContent;
+function CardFooter({ className, ...props }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        "data-slot": "card-footer",
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])('flex items-center px-6 [.border-t]:pt-6', className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/components/ui/card.tsx",
+        lineNumber: 76,
+        columnNumber: 5
+    }, this);
+}
+_c6 = CardFooter;
+;
+var _c, _c1, _c2, _c3, _c4, _c5, _c6;
+__turbopack_context__.k.register(_c, "Card");
+__turbopack_context__.k.register(_c1, "CardHeader");
+__turbopack_context__.k.register(_c2, "CardTitle");
+__turbopack_context__.k.register(_c3, "CardDescription");
+__turbopack_context__.k.register(_c4, "CardAction");
+__turbopack_context__.k.register(_c5, "CardContent");
+__turbopack_context__.k.register(_c6, "CardFooter");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
 "[project]/components/estate-evidence.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -2211,20 +2384,70 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/download.js [app-client] (ecmascript) <export default as Download>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/play.js [app-client] (ecmascript) <export default as Play>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/api.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/button.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/card.tsx [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
 "use client";
 ;
 ;
-function EstateEvidence() {
-    const videos = [
-        {
-            src: "/evidence1.mp4",
-            title: "Asset Verification Segment 1"
-        },
-        {
-            src: "/evidence2.mp4",
-            title: "Asset Verification Segment 2"
+;
+;
+;
+;
+function EstateEvidence({ caseId }) {
+    _s();
+    const [items, setItems] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "EstateEvidence.useEffect": ()=>{
+            let mounted = true;
+            setLoading(true);
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getEvidence"])(caseId).then({
+                "EstateEvidence.useEffect": (res)=>{
+                    if (mounted) setItems(res.items ?? []);
+                }
+            }["EstateEvidence.useEffect"]).catch({
+                "EstateEvidence.useEffect": ()=>{
+                    if (mounted) setItems([]);
+                }
+            }["EstateEvidence.useEffect"]).finally({
+                "EstateEvidence.useEffect": ()=>setLoading(false)
+            }["EstateEvidence.useEffect"]);
+            return ({
+                "EstateEvidence.useEffect": ()=>{
+                    mounted = false;
+                }
+            })["EstateEvidence.useEffect"];
         }
-    ];
+    }["EstateEvidence.useEffect"], [
+        caseId
+    ]);
+    const videoItems = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
+        "EstateEvidence.useMemo[videoItems]": ()=>items.filter({
+                "EstateEvidence.useMemo[videoItems]": (i)=>i.type === 'video'
+            }["EstateEvidence.useMemo[videoItems]"])
+    }["EstateEvidence.useMemo[videoItems]"], [
+        items
+    ]);
+    const imageItems = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
+        "EstateEvidence.useMemo[imageItems]": ()=>items.filter({
+                "EstateEvidence.useMemo[imageItems]": (i)=>i.type === 'image'
+            }["EstateEvidence.useMemo[imageItems]"])
+    }["EstateEvidence.useMemo[imageItems]"], [
+        items
+    ]);
+    const docItems = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
+        "EstateEvidence.useMemo[docItems]": ()=>items.filter({
+                "EstateEvidence.useMemo[docItems]": (i)=>i.type === 'document'
+            }["EstateEvidence.useMemo[docItems]"])
+    }["EstateEvidence.useMemo[docItems]"], [
+        items
+    ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-white flex flex-col",
         children: [
@@ -2238,7 +2461,7 @@ function EstateEvidence() {
                             children: "Estate Evidence & Clearance Status"
                         }, void 0, false, {
                             fileName: "[project]/components/estate-evidence.tsx",
-                            lineNumber: 16,
+                            lineNumber: 47,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2246,18 +2469,18 @@ function EstateEvidence() {
                             children: "Authenticated evidence and clearance verification"
                         }, void 0, false, {
                             fileName: "[project]/components/estate-evidence.tsx",
-                            lineNumber: 17,
+                            lineNumber: 48,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/estate-evidence.tsx",
-                    lineNumber: 15,
+                    lineNumber: 46,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/estate-evidence.tsx",
-                lineNumber: 14,
+                lineNumber: 45,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2273,7 +2496,7 @@ function EstateEvidence() {
                                     children: "Estate Documents"
                                 }, void 0, false, {
                                     fileName: "[project]/components/estate-evidence.tsx",
-                                    lineNumber: 26,
+                                    lineNumber: 57,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2284,7 +2507,7 @@ function EstateEvidence() {
                                             status: "Verified"
                                         }, void 0, false, {
                                             fileName: "[project]/components/estate-evidence.tsx",
-                                            lineNumber: 28,
+                                            lineNumber: 59,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DocumentRow, {
@@ -2292,7 +2515,7 @@ function EstateEvidence() {
                                             status: "Verified"
                                         }, void 0, false, {
                                             fileName: "[project]/components/estate-evidence.tsx",
-                                            lineNumber: 29,
+                                            lineNumber: 60,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DocumentRow, {
@@ -2300,19 +2523,19 @@ function EstateEvidence() {
                                             status: "Verified"
                                         }, void 0, false, {
                                             fileName: "[project]/components/estate-evidence.tsx",
-                                            lineNumber: 30,
+                                            lineNumber: 61,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/estate-evidence.tsx",
-                                    lineNumber: 27,
+                                    lineNumber: 58,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/estate-evidence.tsx",
-                            lineNumber: 25,
+                            lineNumber: 56,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2323,54 +2546,175 @@ function EstateEvidence() {
                                     children: "Asset Evidence"
                                 }, void 0, false, {
                                     fileName: "[project]/components/estate-evidence.tsx",
-                                    lineNumber: 36,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-sm text-gray-600 mb-4",
-                                    children: "Total Estate Assets: $6,000,000 USD"
-                                }, void 0, false, {
-                                    fileName: "[project]/components/estate-evidence.tsx",
-                                    lineNumber: 37,
+                                    lineNumber: 67,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "grid grid-cols-1 md:grid-cols-2 gap-6",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(AssetCard, {
-                                            title: "Financial Assets ($4,000,000)",
+                                            title: "Financial Assets",
                                             items: [
-                                                "Bank Accounts: $2,500,000",
-                                                "Investment Accounts: $1,200,000",
-                                                "Bonds & Securities: $300,000"
+                                                "Bank Accounts: $1,245,000",
+                                                "Investment Accounts: $987,500",
+                                                "Bonds & Securities: $615,000"
                                             ]
                                         }, void 0, false, {
                                             fileName: "[project]/components/estate-evidence.tsx",
-                                            lineNumber: 39,
+                                            lineNumber: 69,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(AssetCard, {
-                                            title: "Physical Assets ($2,000,000)",
+                                            title: "Physical Assets",
                                             items: [
-                                                "Real Estate: $1,600,000",
-                                                "Art & Collectibles: $250,000",
-                                                "Vehicles & Equipment: $150,000"
+                                                "Real Estate: $850,000",
+                                                "Art & Collectibles: $150,000",
+                                                "Vehicles & Equipment: $45,000"
                                             ]
                                         }, void 0, false, {
                                             fileName: "[project]/components/estate-evidence.tsx",
-                                            lineNumber: 47,
+                                            lineNumber: 73,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/estate-evidence.tsx",
-                                    lineNumber: 38,
+                                    lineNumber: 68,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/estate-evidence.tsx",
-                            lineNumber: 35,
+                            lineNumber: 66,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "bg-white border-2 border-[#ECECEC] rounded-lg p-8",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                    className: "text-2xl font-bold text-[#0C1B33] mb-6",
+                                    children: "Compliance Notes"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/estate-evidence.tsx",
+                                    lineNumber: 82,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "bg-[#FAFAFA] p-6 rounded border border-[#ECECEC]",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                        className: "space-y-3 text-gray-700",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                className: "flex gap-3",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-[#CDAA4A] font-bold",
+                                                        children: "•"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/estate-evidence.tsx",
+                                                        lineNumber: 86,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: "All assets authenticated by certified appraisers and verified."
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/estate-evidence.tsx",
+                                                        lineNumber: 87,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                lineNumber: 85,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                className: "flex gap-3",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-[#CDAA4A] font-bold",
+                                                        children: "•"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/estate-evidence.tsx",
+                                                        lineNumber: 90,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: "Beneficiary relationship verified against official estate documentation."
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/estate-evidence.tsx",
+                                                        lineNumber: 91,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                lineNumber: 89,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                className: "flex gap-3",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-[#CDAA4A] font-bold",
+                                                        children: "•"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/estate-evidence.tsx",
+                                                        lineNumber: 94,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: "All tax and legal compliance requirements have been met."
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/estate-evidence.tsx",
+                                                        lineNumber: 95,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                lineNumber: 93,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                className: "flex gap-3",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-[#CDAA4A] font-bold",
+                                                        children: "•"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/estate-evidence.tsx",
+                                                        lineNumber: 98,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: "Funds cleared pending final clearance payment and attorney approval."
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/estate-evidence.tsx",
+                                                        lineNumber: 99,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                lineNumber: 97,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/components/estate-evidence.tsx",
+                                        lineNumber: 84,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/components/estate-evidence.tsx",
+                                    lineNumber: 83,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/estate-evidence.tsx",
+                            lineNumber: 81,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2381,7 +2725,7 @@ function EstateEvidence() {
                                     children: "Asset Verification Video"
                                 }, void 0, false, {
                                     fileName: "[project]/components/estate-evidence.tsx",
-                                    lineNumber: 60,
+                                    lineNumber: 107,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2389,94 +2733,52 @@ function EstateEvidence() {
                                     children: "Detailed asset verification and evidence documentation"
                                 }, void 0, false, {
                                     fileName: "[project]/components/estate-evidence.tsx",
-                                    lineNumber: 61,
+                                    lineNumber: 108,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "space-y-8",
-                                    children: videos.map((v, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "space-y-3",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-sm font-semibold text-[#0C1B33]",
-                                                    children: v.title
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/estate-evidence.tsx",
-                                                    lineNumber: 65,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "aspect-video bg-black rounded-lg overflow-hidden relative",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("video", {
-                                                            src: v.src,
-                                                            controls: true,
-                                                            preload: "metadata",
-                                                            className: "w-full h-full object-cover",
-                                                            "aria-label": v.title
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/components/estate-evidence.tsx",
-                                                            lineNumber: 67,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "absolute top-2 left-2 bg-[#0C1B33]/70 text-white text-xs px-2 py-1 rounded",
-                                                            children: [
-                                                                "Segment ",
-                                                                i + 1
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/components/estate-evidence.tsx",
-                                                            lineNumber: 74,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/components/estate-evidence.tsx",
-                                                    lineNumber: 66,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex gap-4",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                        href: v.src,
-                                                        download: true,
-                                                        className: "text-[#0C1B33] text-sm font-semibold hover:text-[#1a2a47] flex items-center gap-1",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__["Download"], {
-                                                                className: "w-4 h-4"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/components/estate-evidence.tsx",
-                                                                lineNumber: 84,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            " Download"
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/components/estate-evidence.tsx",
-                                                        lineNumber: 79,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/estate-evidence.tsx",
-                                                    lineNumber: 78,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, v.src, true, {
-                                            fileName: "[project]/components/estate-evidence.tsx",
-                                            lineNumber: 64,
-                                            columnNumber: 17
-                                        }, this))
+                                    className: "aspect-video bg-gradient-to-br from-[#0C1B33] to-[#1a2a47] rounded-lg flex items-center justify-center",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-center",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__["Play"], {
+                                                className: "w-16 h-16 text-white mx-auto mb-3 opacity-60"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                lineNumber: 111,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-white text-lg font-semibold",
+                                                children: "Asset Verification Video"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                lineNumber: 112,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-300 text-sm mt-2",
+                                                children: "Estate & asset authentication documentation"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                lineNumber: 113,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/components/estate-evidence.tsx",
+                                        lineNumber: 110,
+                                        columnNumber: 15
+                                    }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/estate-evidence.tsx",
-                                    lineNumber: 62,
+                                    lineNumber: 109,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/estate-evidence.tsx",
-                            lineNumber: 59,
+                            lineNumber: 106,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2487,7 +2789,7 @@ function EstateEvidence() {
                                     children: "Clearance Status"
                                 }, void 0, false, {
                                     fileName: "[project]/components/estate-evidence.tsx",
-                                    lineNumber: 94,
+                                    lineNumber: 120,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2498,7 +2800,7 @@ function EstateEvidence() {
                                             status: "Complete"
                                         }, void 0, false, {
                                             fileName: "[project]/components/estate-evidence.tsx",
-                                            lineNumber: 96,
+                                            lineNumber: 122,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(StatusItem, {
@@ -2506,7 +2808,7 @@ function EstateEvidence() {
                                             status: "Complete"
                                         }, void 0, false, {
                                             fileName: "[project]/components/estate-evidence.tsx",
-                                            lineNumber: 97,
+                                            lineNumber: 123,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(StatusItem, {
@@ -2514,13 +2816,13 @@ function EstateEvidence() {
                                             status: "Pending Payment"
                                         }, void 0, false, {
                                             fileName: "[project]/components/estate-evidence.tsx",
-                                            lineNumber: 98,
+                                            lineNumber: 124,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/estate-evidence.tsx",
-                                    lineNumber: 95,
+                                    lineNumber: 121,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2533,36 +2835,332 @@ function EstateEvidence() {
                                                 children: "Next Step:"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/estate-evidence.tsx",
-                                                lineNumber: 102,
+                                                lineNumber: 128,
                                                 columnNumber: 17
                                             }, this),
                                             " Complete clearance charges payment to finalize your inheritance release."
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/estate-evidence.tsx",
-                                        lineNumber: 101,
+                                        lineNumber: 127,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/estate-evidence.tsx",
-                                    lineNumber: 100,
+                                    lineNumber: 126,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/estate-evidence.tsx",
-                            lineNumber: 93,
+                            lineNumber: 119,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "space-y-6",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center justify-between",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "text-lg font-semibold",
+                                            children: "Estate Evidence"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/estate-evidence.tsx",
+                                            lineNumber: 136,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex gap-2",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                    variant: "outline",
+                                                    onClick: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["downloadManyAsZip"])(items.map((i)=>({
+                                                                url: i.url,
+                                                                name: `${i.title}-${i.id}${guessExt(i.url)}`
+                                                            }))),
+                                                    children: "Download All (ZIP)"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/estate-evidence.tsx",
+                                                    lineNumber: 138,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                    onClick: ()=>docItems[0] && (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["downloadFile"])(docItems[0].url, `${docItems[0].title}${guessExt(docItems[0].url)}`),
+                                                    children: "Download First Document"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/estate-evidence.tsx",
+                                                    lineNumber: 141,
+                                                    columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/components/estate-evidence.tsx",
+                                            lineNumber: 137,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/estate-evidence.tsx",
+                                    lineNumber: 135,
+                                    columnNumber: 13
+                                }, this),
+                                loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-sm text-muted-foreground",
+                                    children: "Loading evidence..."
+                                }, void 0, false, {
+                                    fileName: "[project]/components/estate-evidence.tsx",
+                                    lineNumber: 147,
+                                    columnNumber: 25
+                                }, this),
+                                !loading && items.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                                    className: "p-6",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-sm text-muted-foreground",
+                                        children: "No evidence available for this case yet."
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/estate-evidence.tsx",
+                                        lineNumber: 151,
+                                        columnNumber: 17
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/components/estate-evidence.tsx",
+                                    lineNumber: 150,
+                                    columnNumber: 15
+                                }, this),
+                                videoItems.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                                    className: "space-y-3",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                            className: "font-medium",
+                                            children: "Video Evidence"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/estate-evidence.tsx",
+                                            lineNumber: 158,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "grid md:grid-cols-2 gap-4",
+                                            children: videoItems.map((v)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                                                    className: "p-3",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "space-y-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-sm font-medium",
+                                                                children: v.title
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                                lineNumber: 163,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("video", {
+                                                                src: v.url,
+                                                                controls: true,
+                                                                className: "w-full rounded"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                                lineNumber: 164,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex gap-2",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                    variant: "outline",
+                                                                    onClick: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["downloadFile"])(v.url, `${v.title}${guessExt(v.url)}`),
+                                                                    children: "Download Video"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/components/estate-evidence.tsx",
+                                                                    lineNumber: 166,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                                lineNumber: 165,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/components/estate-evidence.tsx",
+                                                        lineNumber: 162,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                }, v.id, false, {
+                                                    fileName: "[project]/components/estate-evidence.tsx",
+                                                    lineNumber: 161,
+                                                    columnNumber: 21
+                                                }, this))
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/estate-evidence.tsx",
+                                            lineNumber: 159,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/estate-evidence.tsx",
+                                    lineNumber: 157,
+                                    columnNumber: 15
+                                }, this),
+                                imageItems.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                                    className: "space-y-3",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                            className: "font-medium",
+                                            children: "Image Evidence"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/estate-evidence.tsx",
+                                            lineNumber: 180,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "grid md:grid-cols-3 gap-4",
+                                            children: imageItems.map((img)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                                                    className: "p-3",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "space-y-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-sm font-medium",
+                                                                children: img.title
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                                lineNumber: 185,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                                src: img.url,
+                                                                alt: img.title,
+                                                                className: "w-full rounded object-cover"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                                lineNumber: 186,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex gap-2",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                    variant: "outline",
+                                                                    onClick: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["downloadFile"])(img.url, `${img.title}${guessExt(img.url)}`),
+                                                                    children: "Download Image"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/components/estate-evidence.tsx",
+                                                                    lineNumber: 188,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                                lineNumber: 187,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/components/estate-evidence.tsx",
+                                                        lineNumber: 184,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                }, img.id, false, {
+                                                    fileName: "[project]/components/estate-evidence.tsx",
+                                                    lineNumber: 183,
+                                                    columnNumber: 21
+                                                }, this))
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/estate-evidence.tsx",
+                                            lineNumber: 181,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/estate-evidence.tsx",
+                                    lineNumber: 179,
+                                    columnNumber: 15
+                                }, this),
+                                docItems.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                                    className: "space-y-3",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                            className: "font-medium",
+                                            children: "Documents"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/estate-evidence.tsx",
+                                            lineNumber: 202,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "grid md:grid-cols-2 gap-4",
+                                            children: docItems.map((doc)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                                                    className: "p-3",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "space-y-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-sm font-medium",
+                                                                children: doc.title
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                                lineNumber: 207,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-xs text-muted-foreground break-all",
+                                                                children: doc.url
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                                lineNumber: 208,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex gap-2",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                    variant: "outline",
+                                                                    onClick: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["downloadFile"])(doc.url, `${doc.title}${guessExt(doc.url)}`),
+                                                                    children: "Download"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/components/estate-evidence.tsx",
+                                                                    lineNumber: 210,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/estate-evidence.tsx",
+                                                                lineNumber: 209,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/components/estate-evidence.tsx",
+                                                        lineNumber: 206,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                }, doc.id, false, {
+                                                    fileName: "[project]/components/estate-evidence.tsx",
+                                                    lineNumber: 205,
+                                                    columnNumber: 21
+                                                }, this))
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/estate-evidence.tsx",
+                                            lineNumber: 203,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/estate-evidence.tsx",
+                                    lineNumber: 201,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/estate-evidence.tsx",
+                            lineNumber: 134,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/estate-evidence.tsx",
-                    lineNumber: 23,
+                    lineNumber: 54,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/estate-evidence.tsx",
-                lineNumber: 22,
+                lineNumber: 53,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -2573,26 +3171,27 @@ function EstateEvidence() {
                         children: "© 2025 Inheritance Clearance Portal. All rights reserved. Confidential communications."
                     }, void 0, false, {
                         fileName: "[project]/components/estate-evidence.tsx",
-                        lineNumber: 113,
+                        lineNumber: 227,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/estate-evidence.tsx",
-                    lineNumber: 112,
+                    lineNumber: 226,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/estate-evidence.tsx",
-                lineNumber: 111,
+                lineNumber: 225,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/estate-evidence.tsx",
-        lineNumber: 12,
+        lineNumber: 43,
         columnNumber: 5
     }, this);
 }
+_s(EstateEvidence, "avtyGcFG/oDk3t4bYbTnlzUoylg=");
 _c = EstateEvidence;
 function DocumentRow({ title, status }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2606,7 +3205,7 @@ function DocumentRow({ title, status }) {
                         children: title
                     }, void 0, false, {
                         fileName: "[project]/components/estate-evidence.tsx",
-                        lineNumber: 124,
+                        lineNumber: 238,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2614,34 +3213,50 @@ function DocumentRow({ title, status }) {
                         children: "Authenticated & Encrypted"
                     }, void 0, false, {
                         fileName: "[project]/components/estate-evidence.tsx",
-                        lineNumber: 125,
+                        lineNumber: 239,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/estate-evidence.tsx",
-                lineNumber: 123,
+                lineNumber: 237,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex items-center gap-3",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                    className: "inline-block bg-[#E8D9B5] text-[#0C1B33] px-3 py-1 rounded text-xs font-semibold",
-                    children: status
-                }, void 0, false, {
-                    fileName: "[project]/components/estate-evidence.tsx",
-                    lineNumber: 128,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "inline-block bg-[#E8D9B5] text-[#0C1B33] px-3 py-1 rounded text-xs font-semibold",
+                        children: status
+                    }, void 0, false, {
+                        fileName: "[project]/components/estate-evidence.tsx",
+                        lineNumber: 242,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        className: "text-[#0C1B33] hover:text-[#1a2a47]",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__["Download"], {
+                            className: "w-5 h-5"
+                        }, void 0, false, {
+                            fileName: "[project]/components/estate-evidence.tsx",
+                            lineNumber: 246,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/components/estate-evidence.tsx",
+                        lineNumber: 245,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/components/estate-evidence.tsx",
-                lineNumber: 127,
+                lineNumber: 241,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/estate-evidence.tsx",
-        lineNumber: 122,
+        lineNumber: 236,
         columnNumber: 5
     }, this);
 }
@@ -2655,7 +3270,7 @@ function AssetCard({ title, items }) {
                 children: title
             }, void 0, false, {
                 fileName: "[project]/components/estate-evidence.tsx",
-                lineNumber: 144,
+                lineNumber: 261,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -2668,7 +3283,7 @@ function AssetCard({ title, items }) {
                                 children: "✓"
                             }, void 0, false, {
                                 fileName: "[project]/components/estate-evidence.tsx",
-                                lineNumber: 148,
+                                lineNumber: 265,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2676,24 +3291,24 @@ function AssetCard({ title, items }) {
                                 children: item
                             }, void 0, false, {
                                 fileName: "[project]/components/estate-evidence.tsx",
-                                lineNumber: 149,
+                                lineNumber: 266,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, idx, true, {
                         fileName: "[project]/components/estate-evidence.tsx",
-                        lineNumber: 147,
+                        lineNumber: 264,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/components/estate-evidence.tsx",
-                lineNumber: 145,
+                lineNumber: 262,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/estate-evidence.tsx",
-        lineNumber: 143,
+        lineNumber: 260,
         columnNumber: 5
     }, this);
 }
@@ -2712,7 +3327,7 @@ function StatusItem({ title, status }) {
                 children: title
             }, void 0, false, {
                 fileName: "[project]/components/estate-evidence.tsx",
-                lineNumber: 166,
+                lineNumber: 283,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2720,17 +3335,24 @@ function StatusItem({ title, status }) {
                 children: status
             }, void 0, false, {
                 fileName: "[project]/components/estate-evidence.tsx",
-                lineNumber: 167,
+                lineNumber: 284,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/estate-evidence.tsx",
-        lineNumber: 165,
+        lineNumber: 282,
         columnNumber: 5
     }, this);
 }
 _c3 = StatusItem;
+function guessExt(url) {
+    const lower = url.toLowerCase();
+    if (lower.endsWith('.mp4')) return '.mp4';
+    if (lower.includes('image/')) return '.png';
+    if (lower.endsWith('.pdf')) return '.pdf';
+    return '';
+}
 var _c, _c1, _c2, _c3;
 __turbopack_context__.k.register(_c, "EstateEvidence");
 __turbopack_context__.k.register(_c1, "DocumentRow");
@@ -2749,225 +3371,54 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/file-text.js [app-client] (ecmascript) <export default as FileText>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/download.js [app-client] (ecmascript) <export default as Download>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/calendar.js [app-client] (ecmascript) <export default as Calendar>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$triangle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertTriangle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/triangle-alert.js [app-client] (ecmascript) <export default as AlertTriangle>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-check.js [app-client] (ecmascript) <export default as CheckCircle2>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$info$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Info$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/info.js [app-client] (ecmascript) <export default as Info>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/dollar-sign.js [app-client] (ecmascript) <export default as DollarSign>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$truck$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Truck$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/truck.js [app-client] (ecmascript) <export default as Truck>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShieldCheck$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/shield-check.js [app-client] (ecmascript) <export default as ShieldCheck>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-;
-var _s = __turbopack_context__.k.signature();
 "use client";
 ;
 ;
 function HistoryStatements() {
-    _s();
-    const messages = [
+    const statements = [
         {
             id: 1,
             date: "Nov 28, 2025",
-            subject: "Account Details Confirmed",
-            author: "Attorney Charolette",
-            category: "Confirmation",
+            title: "Estate Appraisal Report",
+            attorney: "John Richardson, Esq.",
             status: "Completed",
-            body: "Dear , Eric Birckhead\n\nThank you for confirming your account details. I have reviewed the information provided, and everything appears to be in order. I will proceed with the next step of the process before finalizing the payment.\n\nShould any additional confirmation or documentation be required, I will notify you promptly.\n\nKind regards,\nAttorney Charolette"
+            type: "Appraisal"
         },
-        // {
-        //   id: 2,
-        //   date: "Nov 28, 2025",
-        //   subject: "Payment Confirmation Request",
-        //   author: "Attorney Charolette",
-        //   category: "Payment",
-        //   status: "Awaiting Confirmation",
-        //   body:
-        //     "Dear Mr Eric Birckhead\n\nI am preparing to initiate your payment and would like to reconfirm your account details to ensure accuracy before proceeding. Kindly review and confirm the following information:\n• Account Name: [Insert Name]\n• Bank Name: [Insert Bank]\n• Account Number: [Insert Number]\n\nPlease confirm that all details are correct at your earliest convenience so I can finalize the transaction without delay.\n\nKind regards,\nAttorney Charolette",
-        // },
+        {
+            id: 2,
+            date: "Nov 25, 2025",
+            title: "Legal Documentation Review",
+            attorney: "Sarah Mitchell, Esq.",
+            status: "Completed",
+            type: "Legal"
+        },
         {
             id: 3,
-            date: "Nov 28, 2025",
-            subject: "Administrative Fee Required Before Disbursement",
-            author: "Attorney Charolette",
-            category: "Fee",
-            status: "Awaiting Payment",
-            feeAmount: 1000,
-            feeCurrency: "USD",
-            body: "Dear Mr Eric Birckhead\n\nI’m pleased to inform you that the funds are available and ready for disbursement. However, before the payment can be processed, the outstanding law firm administrative fee of $1,000 must be settled.\n\nThis fee is separate from the other payments previously made and is required to finalize the release of funds. Kindly ensure the payment is completed within 24 hours, after which the transfer will be initiated and sent out today upon confirmation.\n\nPlease acknowledge receipt of this message and confirm once the fee has been settled so we can proceed without delay.\n\nKind regards,\nAttorney Charolette."
+            date: "Nov 20, 2025",
+            title: "Beneficiary Verification Completed",
+            attorney: "John Richardson, Esq.",
+            status: "Completed",
+            type: "Verification"
         },
         {
             id: 4,
-            date: "Nov 28, 2025",
-            subject: "Fee Requirement Reaffirmed",
-            author: "Attorney Charolette",
-            category: "Fee",
-            status: "Awaiting Payment",
-            feeAmount: 1000,
-            feeCurrency: "USD",
-            body: "Dear Mr Eric Birckhead\n\nThank you for your message and for sharing your situation with me. I truly understand and respect the challenges you’ve mentioned, and I want to assure you that I’ll do everything possible to ensure this process goes smoothly for you.\n\nThat said, the $1,000 administrative fee remains a firm requirement before the release of any funds. This fee is essential for completing the final authorization process and granting full access to your payment.\n\nPlease make arrangements to have the fee settled within the next 24 hours so that we can proceed with releasing the funds today as planned. Once payment is confirmed, I’ll move forward immediately to finalize the transaction.\n\nI sincerely appreciate your patience and cooperation.\n\nKind regards,\nAttorney Charolette"
+            date: "Nov 15, 2025",
+            title: "Initial Estate Assessment",
+            attorney: "David Chen, Esq.",
+            status: "Completed",
+            type: "Assessment"
         },
         {
             id: 5,
-            date: "Nov 28, 2025",
-            subject: "Compliance Policy Reminder",
-            author: "Attorney Charolette",
-            category: "Compliance",
-            status: "Pending Approval",
-            body: "Dear Mr Eric Birckhead\n\nPlease be advised that the firm cannot proceed with the release of any documents or finalize the transaction until all required administrative procedures have been completed, including the outstanding fee. These steps are part of our compliance policy and must be satisfied before the funds can be released.\n\nOnce all requirements have been fulfilled, the process will continue without further delay. Kindly confirm once this has been addressed so we can proceed accordingly.\n\nKind regards,\nAttorney Charolette"
-        },
-        {
-            id: 6,
-            date: "Nov 28, 2025",
-            subject: "No Additional Charges",
-            author: "Attorney Charolette",
-            category: "Compliance",
+            date: "Nov 10, 2025",
+            title: "Inheritance Claim Received",
+            attorney: "John Richardson, Esq.",
             status: "Completed",
-            body: "Dear Mr Eric Birckhead\n\nAt this point, there are no additional or undisclosed charges. All required administrative costs have been clearly outlined, and we will continue to handle the matter in a transparent and lawful manner.\n\nOnce the necessary formalities are completed, we’ll proceed with the next step in accordance with firm procedures.\n\nKind regards,\nAttorney Charolette"
-        },
-        {
-            id: 7,
-            date: "Nov 28, 2025",
-            subject: "Final Fee Confirmation",
-            author: "Attorney Charolette",
-            category: "Fee",
-            status: "Awaiting Payment",
-            feeAmount: 1000,
-            feeCurrency: "USD",
-            body: "Dear Mr Eric Birckhead\n\nYes, this is the final fee required. Once the $1,000 administrative payment is completed, the process will be finalized and the funds will be released in accordance with firm procedures.\n\nPlease confirm once payment has been made so we can proceed without delay.\n\nKind regards,\nAttorney Charolette"
-        },
-        {
-            id: 8,
-            date: "Nov 28, 2025",
-            subject: "Payment Received, Disbursement Timeline",
-            author: "Attorney Charolette",
-            category: "Confirmation",
-            status: "Completed",
-            body: "Dear Mr Eric Birckhead ,\n\nThank you for confirming the payment. I’ve verified receipt on our end. Please note that processing and final disbursement of the funds will take approximately five (5) business days to complete.\n\nOnce the transfer has been finalized, I’ll provide you with confirmation and all relevant details.\n\nKind regards,\nAttorney Charolette"
-        },
-        {
-            id: 9,
-            date: "Nov 28, 2025",
-            subject: "Update on Disbursement and Asset Handling",
-            author: "Attorney Charolette",
-            category: "Update",
-            status: "In Review",
-            locations: [
-                "Miami, FL",
-                "Texas",
-                "Accra, Ghana"
-            ],
-            notes: [
-                "Awaiting approvals in Miami and Texas per will requirements.",
-                "Gold stored in Accra, Ghana in two secured boxes.",
-                "Beneficiary documentation may be required before release."
-            ],
-            body: "Dear Mr Eric Birckhead\n\nI am writing to provide an update on the status of Ms. Sharon Wills’ matter.\n\nAt present, final disbursement cannot proceed because the firms handling approvals in Miami and Texas have not yet completed their review in accordance with Mr. Will’s will. The will expressly requires that all paperwork and related formalities be completed before any funds are released. Out of respect for the testator’s expressed wishes, we must await those remaining approvals before moving forward.\n\nOnce the Miami and Texas firms confirm their approvals, the funds will be disbursed to the authorized recipient(s) named in the estate documents (in this case, the spouse). We will notify you immediately when that authorization is received and provide the expected timing for transfer.\n\nRegarding the physical assets, the gold referenced in the will is currently located in Accra, Ghana, stored in two secured boxes. I am actively coordinating the necessary steps for secure handling and transfer of those assets and will provide you with a further update on logistics and timing as progress is made.\n\nPlease note, as part of our standard due diligence and to ensure compliance with the will’s terms, we may require confirmation of beneficiary status or other supporting documentation before release. If any such documentation is needed, we will request it promptly and explain exactly what is required.\n\nKind regards,\nAttorney Charolette"
-        },
-        {
-            id: 10,
-            date: "Nov 28, 2025",
-            subject: "Reassurance on Approvals Timeline",
-            author: "Attorney Charolette",
-            category: "Update",
-            status: "In Review",
-            body: "Dear Mr Eric Birckhead\n\nI understand how worried you are, and I truly appreciate the care you’re showing for Sharon. Please rest assured, it shouldn’t take long. As soon as the remaining approvals come through, I will notify you immediately so we can move forward without delay.\n\nThank you for your patience and understanding—we’re almost there.\n\nKind regards,\nAttorney Charolette"
-        },
-        {
-            id: 11,
-            date: "Nov 28, 2025",
-            subject: "Miami Approval Complete; Awaiting Texas",
-            author: "Attorney Charolette",
-            category: "Update",
-            status: "Pending Approval",
-            body: "Dear Mr Eric Birckhead\n\nThis message is to update you on the status of Ms. Sharon Wills’ estate. The approval process in Miami has been completed, and we are now awaiting final confirmation from the Texas office. Once that authorization is issued, the estate funds will be deposited directly into your account, and you will be notified immediately.\n\nThe gold bars associated with the estate have been transferred from Ghana and are currently in customs custody. The listed clearance fee for the release of the gold shipment is $765.05. After clearance is completed, the gold will be forwarded to Omaha, Nebraska through a secure carrier, and a tracking number will be provided once dispatch is confirmed.\n\nPlease let me know how you wish to proceed, and I will continue to provide updates as soon as additional approvals are finalized.\n\nKind regards,\nAttorney Charolette",
-            feeAmount: 765.05,
-            feeCurrency: "USD",
-            locations: [
-                "Ghana",
-                "Customs",
-                "Omaha, NE"
-            ],
-            notes: [
-                "Gold in customs; clearance fee required before release.",
-                "Tracking number to be provided after dispatch."
-            ]
+            type: "Submission"
         }
     ];
-    const categoryStyles = {
-        Payment: "bg-blue-100 text-blue-800",
-        Confirmation: "bg-green-100 text-green-800",
-        Fee: "bg-orange-100 text-orange-800",
-        Compliance: "bg-purple-100 text-purple-800",
-        Update: "bg-indigo-100 text-indigo-800",
-        Logistics: "bg-teal-100 text-teal-800"
-    };
-    const statusIcon = (status)=>{
-        switch(status){
-            case "Completed":
-                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
-                    className: "w-4 h-4 text-green-600"
-                }, void 0, false, {
-                    fileName: "[project]/components/history-statements.tsx",
-                    lineNumber: 178,
-                    columnNumber: 16
-                }, this);
-            case "Awaiting Confirmation":
-                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$info$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Info$3e$__["Info"], {
-                    className: "w-4 h-4 text-blue-600"
-                }, void 0, false, {
-                    fileName: "[project]/components/history-statements.tsx",
-                    lineNumber: 180,
-                    columnNumber: 16
-                }, this);
-            case "Awaiting Payment":
-                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__["DollarSign"], {
-                    className: "w-4 h-4 text-orange-600"
-                }, void 0, false, {
-                    fileName: "[project]/components/history-statements.tsx",
-                    lineNumber: 182,
-                    columnNumber: 16
-                }, this);
-            case "In Review":
-                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShieldCheck$3e$__["ShieldCheck"], {
-                    className: "w-4 h-4 text-purple-600"
-                }, void 0, false, {
-                    fileName: "[project]/components/history-statements.tsx",
-                    lineNumber: 184,
-                    columnNumber: 16
-                }, this);
-            case "Pending Approval":
-                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$triangle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertTriangle$3e$__["AlertTriangle"], {
-                    className: "w-4 h-4 text-yellow-600"
-                }, void 0, false, {
-                    fileName: "[project]/components/history-statements.tsx",
-                    lineNumber: 186,
-                    columnNumber: 16
-                }, this);
-            case "In Transit":
-                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$truck$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Truck$3e$__["Truck"], {
-                    className: "w-4 h-4 text-teal-600"
-                }, void 0, false, {
-                    fileName: "[project]/components/history-statements.tsx",
-                    lineNumber: 188,
-                    columnNumber: 16
-                }, this);
-            default:
-                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$info$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Info$3e$__["Info"], {
-                    className: "w-4 h-4 text-gray-600"
-                }, void 0, false, {
-                    fileName: "[project]/components/history-statements.tsx",
-                    lineNumber: 190,
-                    columnNumber: 16
-                }, this);
-        }
-    };
-    const hasAnyFees = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
-        "HistoryStatements.useMemo[hasAnyFees]": ()=>messages.some({
-                "HistoryStatements.useMemo[hasAnyFees]": (m)=>m.feeAmount && m.feeAmount > 0
-            }["HistoryStatements.useMemo[hasAnyFees]"])
-    }["HistoryStatements.useMemo[hasAnyFees]"], [
-        messages
-    ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-white flex flex-col",
         children: [
@@ -2978,68 +3429,29 @@ function HistoryStatements() {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                             className: "text-3xl font-bold",
-                            children: "History & Attorney Communications"
+                            children: "History & Attorney Statements"
                         }, void 0, false, {
                             fileName: "[project]/components/history-statements.tsx",
-                            lineNumber: 201,
+                            lineNumber: 54,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-gray-300 mt-2",
-                            children: "Complete record of payment confirmations, compliance updates, fees, approvals, and logistics."
+                            children: "Complete record of your inheritance claim processing and attorney communications."
                         }, void 0, false, {
                             fileName: "[project]/components/history-statements.tsx",
-                            lineNumber: 202,
+                            lineNumber: 55,
                             columnNumber: 11
-                        }, this),
-                        hasAnyFees && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-4 bg-orange-600/20 text-orange-100 border border-orange-400 rounded px-4 py-3",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex items-center gap-2",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__["DollarSign"], {
-                                        className: "w-5 h-5"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/history-statements.tsx",
-                                        lineNumber: 208,
-                                        columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "font-semibold",
-                                        children: "Action Required:"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/history-statements.tsx",
-                                        lineNumber: 209,
-                                        columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-sm",
-                                        children: "Outstanding fees present in the timeline"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/history-statements.tsx",
-                                        lineNumber: 210,
-                                        columnNumber: 17
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/history-statements.tsx",
-                                lineNumber: 207,
-                                columnNumber: 15
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "[project]/components/history-statements.tsx",
-                            lineNumber: 206,
-                            columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/history-statements.tsx",
-                    lineNumber: 200,
+                    lineNumber: 53,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/history-statements.tsx",
-                lineNumber: 199,
+                lineNumber: 52,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3049,53 +3461,51 @@ function HistoryStatements() {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "space-y-4",
-                            children: messages.map((msg)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MessageCard, {
-                                    message: msg,
-                                    categoryStyles: categoryStyles,
-                                    statusIcon: statusIcon
-                                }, msg.id, false, {
+                            children: statements.map((statement)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(StatementCard, {
+                                    statement: statement
+                                }, statement.id, false, {
                                     fileName: "[project]/components/history-statements.tsx",
-                                    lineNumber: 222,
+                                    lineNumber: 66,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/components/history-statements.tsx",
-                            lineNumber: 220,
+                            lineNumber: 64,
                             columnNumber: 11
                         }, this),
-                        messages.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        statements.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "text-center py-12",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"], {
                                     className: "w-12 h-12 text-gray-300 mx-auto mb-4"
                                 }, void 0, false, {
                                     fileName: "[project]/components/history-statements.tsx",
-                                    lineNumber: 228,
+                                    lineNumber: 72,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-gray-500",
-                                    children: "No communications available yet."
+                                    children: "No statements available yet."
                                 }, void 0, false, {
                                     fileName: "[project]/components/history-statements.tsx",
-                                    lineNumber: 229,
+                                    lineNumber: 73,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/history-statements.tsx",
-                            lineNumber: 227,
+                            lineNumber: 71,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/history-statements.tsx",
-                    lineNumber: 219,
+                    lineNumber: 63,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/history-statements.tsx",
-                lineNumber: 218,
+                lineNumber: 62,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -3106,219 +3516,155 @@ function HistoryStatements() {
                         children: "© 2025 Inheritance Clearance Portal. All rights reserved. Confidential communications."
                     }, void 0, false, {
                         fileName: "[project]/components/history-statements.tsx",
-                        lineNumber: 238,
+                        lineNumber: 82,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/history-statements.tsx",
-                    lineNumber: 237,
+                    lineNumber: 81,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/history-statements.tsx",
-                lineNumber: 236,
+                lineNumber: 80,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/history-statements.tsx",
-        lineNumber: 197,
+        lineNumber: 50,
         columnNumber: 5
     }, this);
 }
-_s(HistoryStatements, "mSCx4iPcPIFLHfEL44UybMPraZ0=");
 _c = HistoryStatements;
-function MessageCard({ message, categoryStyles, statusIcon }) {
-    const { date, subject, author, category, status, body, feeAmount, feeCurrency, locations, notes } = message;
+function StatementCard({ statement }) {
+    const typeColors = {
+        Appraisal: "bg-blue-100 text-blue-800",
+        Legal: "bg-purple-100 text-purple-800",
+        Verification: "bg-green-100 text-green-800",
+        Assessment: "bg-orange-100 text-orange-800",
+        Submission: "bg-indigo-100 text-indigo-800"
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "bg-white border-2 border-[#ECECEC] rounded-lg p-6 hover:border-[#CDAA4A] transition",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "flex items-start justify-between gap-4",
-            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex-1",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center gap-3 mb-3",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex-1",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex items-center gap-3 mb-3",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
+                                    className: "w-5 h-5 text-[#CDAA4A]"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/history-statements.tsx",
+                                    lineNumber: 112,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-sm text-gray-600 font-mono",
+                                    children: statement.date
+                                }, void 0, false, {
+                                    fileName: "[project]/components/history-statements.tsx",
+                                    lineNumber: 113,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: `px-3 py-1 rounded text-xs font-semibold ${typeColors[statement.type] || "bg-gray-100"}`,
+                                    children: statement.type
+                                }, void 0, false, {
+                                    fileName: "[project]/components/history-statements.tsx",
+                                    lineNumber: 114,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/history-statements.tsx",
+                            lineNumber: 111,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                            className: "text-lg font-bold text-[#0C1B33] mb-2",
+                            children: statement.title
+                        }, void 0, false, {
+                            fileName: "[project]/components/history-statements.tsx",
+                            lineNumber: 118,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-sm text-gray-600",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "font-semibold",
+                                    children: "Attorney:"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/history-statements.tsx",
+                                    lineNumber: 120,
+                                    columnNumber: 13
+                                }, this),
+                                " ",
+                                statement.attorney
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/history-statements.tsx",
+                            lineNumber: 119,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/components/history-statements.tsx",
+                    lineNumber: 110,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex-shrink-0",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        className: "flex items-center gap-2 bg-[#0C1B33] hover:bg-[#1a2a47] text-white px-4 py-2 rounded transition",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
-                                className: "w-5 h-5 text-[#CDAA4A]"
-                            }, void 0, false, {
-                                fileName: "[project]/components/history-statements.tsx",
-                                lineNumber: 261,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-sm text-gray-600 font-mono",
-                                children: date
-                            }, void 0, false, {
-                                fileName: "[project]/components/history-statements.tsx",
-                                lineNumber: 262,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: `px-3 py-1 rounded text-xs font-semibold ${categoryStyles[category]}`,
-                                children: category
-                            }, void 0, false, {
-                                fileName: "[project]/components/history-statements.tsx",
-                                lineNumber: 263,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "flex items-center gap-1 px-2 py-1 rounded text-xs bg-gray-100 text-gray-700",
-                                children: [
-                                    statusIcon(status),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        children: status
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/history-statements.tsx",
-                                        lineNumber: 268,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/history-statements.tsx",
-                                lineNumber: 266,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/history-statements.tsx",
-                        lineNumber: 260,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                        className: "text-lg font-bold text-[#0C1B33] mb-1",
-                        children: subject
-                    }, void 0, false, {
-                        fileName: "[project]/components/history-statements.tsx",
-                        lineNumber: 272,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-sm text-gray-600 mb-3",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "font-semibold",
-                                children: "From:"
-                            }, void 0, false, {
-                                fileName: "[project]/components/history-statements.tsx",
-                                lineNumber: 274,
-                                columnNumber: 13
-                            }, this),
-                            " ",
-                            author
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/history-statements.tsx",
-                        lineNumber: 273,
-                        columnNumber: 11
-                    }, this),
-                    feeAmount && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mb-3 flex items-center gap-2 bg-orange-50 border border-orange-200 text-orange-800 px-3 py-2 rounded",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__["DollarSign"], {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__["Download"], {
                                 className: "w-4 h-4"
                             }, void 0, false, {
                                 fileName: "[project]/components/history-statements.tsx",
-                                lineNumber: 279,
-                                columnNumber: 15
+                                lineNumber: 125,
+                                columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "text-sm",
-                                children: [
-                                    "Outstanding fee: ",
-                                    feeCurrency ?? "USD",
-                                    " ",
-                                    feeAmount.toLocaleString(undefined, {
-                                        minimumFractionDigits: 2,
-                                        maximumFractionDigits: 2
-                                    })
-                                ]
-                            }, void 0, true, {
+                                children: "Report"
+                            }, void 0, false, {
                                 fileName: "[project]/components/history-statements.tsx",
-                                lineNumber: 280,
-                                columnNumber: 15
+                                lineNumber: 126,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/history-statements.tsx",
-                        lineNumber: 278,
-                        columnNumber: 13
-                    }, this),
-                    locations && locations.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mb-3 flex flex-wrap items-center gap-2",
-                        children: locations.map((loc, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-xs px-2 py-1 bg-teal-50 text-teal-800 border border-teal-200 rounded",
-                                children: loc
-                            }, idx, false, {
-                                fileName: "[project]/components/history-statements.tsx",
-                                lineNumber: 289,
-                                columnNumber: 17
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/components/history-statements.tsx",
-                        lineNumber: 287,
-                        columnNumber: 13
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("pre", {
-                        className: "whitespace-pre-wrap text-sm text-gray-800 bg-gray-50 border border-gray-200 rounded p-4",
-                        children: body
-                    }, void 0, false, {
-                        fileName: "[project]/components/history-statements.tsx",
-                        lineNumber: 296,
+                        lineNumber: 124,
                         columnNumber: 11
-                    }, this),
-                    notes && notes.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mt-3 space-y-1",
-                        children: notes.map((n, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex items-start gap-2 text-sm text-gray-700",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$info$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Info$3e$__["Info"], {
-                                        className: "w-4 h-4 text-gray-500 mt-[2px]"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/history-statements.tsx",
-                                        lineNumber: 304,
-                                        columnNumber: 19
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        children: n
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/history-statements.tsx",
-                                        lineNumber: 305,
-                                        columnNumber: 19
-                                    }, this)
-                                ]
-                            }, i, true, {
-                                fileName: "[project]/components/history-statements.tsx",
-                                lineNumber: 303,
-                                columnNumber: 17
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/components/history-statements.tsx",
-                        lineNumber: 301,
-                        columnNumber: 13
                     }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/history-statements.tsx",
-                lineNumber: 259,
-                columnNumber: 9
-            }, this)
-        }, void 0, false, {
+                }, void 0, false, {
+                    fileName: "[project]/components/history-statements.tsx",
+                    lineNumber: 123,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
             fileName: "[project]/components/history-statements.tsx",
-            lineNumber: 258,
+            lineNumber: 109,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/history-statements.tsx",
-        lineNumber: 257,
+        lineNumber: 108,
         columnNumber: 5
     }, this);
 }
-_c1 = MessageCard;
+_c1 = StatementCard;
 var _c, _c1;
 __turbopack_context__.k.register(_c, "HistoryStatements");
-__turbopack_context__.k.register(_c1, "MessageCard");
+__turbopack_context__.k.register(_c1, "StatementCard");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -4138,4 +4484,4 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 }),
 ]);
 
-//# sourceMappingURL=_41cdc972._.js.map
+//# sourceMappingURL=_e1b0c8d0._.js.map
