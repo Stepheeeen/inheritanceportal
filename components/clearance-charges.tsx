@@ -73,7 +73,7 @@ export default function ClearanceCharges({ caseId = 'c-2001' }: { caseId?: strin
                     reference and payment details.
                   </p>
                   <a
-                    href="mailto:payments@inheritanceclearance.com?subject=Clearance Payment - ICP-2025-087654"
+                    href="mailto:stephenon56@gmail.com?subject=Clearance Payment - ICP-2025-087654"
                     className="inline-flex items-center gap-2 bg-[#0C1B33] hover:bg-[#1a2a47] text-white px-6 py-3 rounded font-semibold transition"
                   >
                     <Mail className="w-4 h-4" />
