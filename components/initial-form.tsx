@@ -171,7 +171,7 @@ export default function InitialForm({ onSubmit }: InitialFormProps) {
                 <FormField
                   label="Name of Lawyer Handling the Matter"
                   name="lawyerName"
-                  value={formData.lawyerName || "John Richardson, Esq."}
+                  value={formData.lawyerName || "Attorney Charolette Harris"}
                   onChange={handleInputChange}
                   required
                 />
